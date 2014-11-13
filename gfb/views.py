@@ -25,11 +25,6 @@ def index_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Home"}
 
-@view_config(renderer="templates/index.pt")
-def foundation_view(request):
-	#if the user is logged in redirect to the appropriate home page
-	return {"layout": site_layout(), "user_header": user_header(request), "location": "Foundation"}
-
 
 
 @view_config(renderer="templates/login.pt", name="login")
@@ -45,6 +40,15 @@ def login_view(request):
 		elif request.params['error'] == '2':
 			ret['error2'] = True
 	return ret
+			#    V Template Location                                V Argument 
+@view_config(renderer="templates/FoundationTemplate.pt",name="FoundationTemplate")
+def Foundation_view(request):
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "FoundationTemplate"}
+
+@view_config(renderer="templates/signup.pt", name="signup")
+def signup_view(request):
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "Sign Up"}
+																			## Match Header? ^
 
 @view_config(name="logout")
 def logout_view(request):
@@ -52,9 +56,3 @@ def logout_view(request):
 
 
 
-	
-@view_config(renderer="templates/signup.pt", name="signup")
-def signup_view(request):
-	if 'username' in request.params: #there's gotta be a better way to do page permissions
-		return HTTPFound("/")
-	return {"layout": site_layout(), "user_header": user_header(request), "location": "Sign Up"}

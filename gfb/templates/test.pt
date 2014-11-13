@@ -1,0 +1,7 @@
+<div metal:use-macro="layout">
+	<div metal:fill-slot="content">
+		<h1>${location}</h1>
+		<p tal:condition="exists:error1">Please enter both username and password.</p>
+		<p tal:condition="exists:error2">Username or password is incorrect.</p>
+	</div>
+</div>

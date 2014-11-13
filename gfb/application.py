@@ -8,6 +8,7 @@ def main():
 	config = Configurator(session_factory = session_factory)
 	config.include('pyramid_chameleon')
 	config.scan('views')
+	#config.add_route('FoundationTemplate', '/FoundationTemplate')
 	config.add_static_view('static', 'static/', cache_max_age=86400)
 	return config.make_wsgi_app()
 	

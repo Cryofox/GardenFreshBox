@@ -1,0 +1,8 @@
+<div metal:use-macro="layout">
+	<div metal:fill-slot="content">
+		You totally can't sign up right now becaause I'm lazy. Just login as<br/>
+		username: Mike<br/>
+		password: password<br/>
+		for now if you wanna see what happens when you do.
+	</div>
+</div>

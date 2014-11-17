@@ -20,11 +20,11 @@ def user_header(request):
 		with open('templates/admin_header.pt') as f:
 			return f.read()
 
-@view_config(renderer="templates/index.pt")
+@view_config(renderer="templates/GFB_Home.pt")
 def index_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Home"}
-
+	#return 'Ok'
 
 
 @view_config(renderer="templates/login.pt", name="login")

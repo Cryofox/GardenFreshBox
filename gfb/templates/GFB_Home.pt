@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Foundation | Welcome</title>
+		<link rel="stylesheet" href="/static/css/foundation.css" />
+		<script src="/static/js/vendor/modernizr.js"></script>
+	</head>
+
+
+
+	<body>
+
+
+
+
+<div class="fixed">
+	<nav class="top-bar" data-topbar role="navigation">
+		<ul class="title-area">
+			<li class="name">
+				<h1><a href="#">Garden Fresh Box</a></h1>
+			</li>
+			<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		</ul>
+
+		<section class="top-bar-section">
+				<!-- Left Nav Section -->
+		
+			<ul class="left">
+				<li class="has-dropdown">
+					<a href="#">Admin Controls</a>
+					<ul class="dropdown">
+						<li><a href="#">Change Account Settings</a></li>
+						<li><a href="#">View and Edit Coordinators</a></li>		
+						<li><a href="#">View and Edit HostSites</a></li>
+						<li><a href="#">View and Edit Sales</a></li>
+						<!-- Example of how to have an Active Link
+						<li class="active"><a href="#">Active link in dropdown</a></li>
+					-->
+					</ul>
+	<!--
+					<a href="#">Coordinator Controls</a>
+					<ul class="dropdown">
+						<li><a href="#">Change Account Settings</a></li>	
+						<li><a href="#">View and Edit HostSites</a></li>
+						<li><a href="#">View and Edit Sales</a></li>
+					</ul>
+	-->
+				</li>
+			</ul>
+
+			<!-- Right Nav Section -->
+			<ul class="right">
+				<li><a href="#">Buy Goodies</a></li>
+				<li><a href="#">Recipes</a></li>
+				<li><a href="#">Pickup Locations</a></li>
+				<li><a href="#">News</a></li>
+				<li><a href="#">F.A.Q.</a></li>
+				<li><a href="#">Contact us</a></li>
+				<li>
+					<a href="#" data-dropdown="hover1" data-options="is_hover:true">Has Hover Dropdown</a>
+
+					<ul id="hover1" class="f-dropdown" data-dropdown-content>
+					  <li><a href="#">This is a link</a></li>
+					  <li><a href="#">This is another</a></li>
+					  <li><a href="#">Yet another</a></li>
+					</ul>
+				</li>
+
+			</ul>
+
+		</section>
+
+	</nav>
+
+	<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Dropdown Button</button><br>
+	<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+	  <li><a href="#">This is a link</a></li>
+	  <li><a href="#">This is another</a></li>
+	  <li><a href="#">Yet another</a></li>
+	</ul>
+
+</div>
+
+
+
+  <script src="/static/js/vendor/jquery.js"></script>
+  <script src="/static/js/foundation/foundation.js"></script>
+  <script src="/static/js/foundation/foundation.topbar.js"></script>
+  <!-- Other JS plugins can be included here -->
+  <script>
+    $(document).foundation();
+  </script>
+
+
+	</body>
+</html>

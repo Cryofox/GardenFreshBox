@@ -1,0 +1,15 @@
+<div metal:use-macro="layout">
+	<div metal:fill-slot="content">
+		<h1>${location}</h1>
+		<p>Welcome to Garden Fresh Box.
+			<span tal:condition="python:not 'username' in request.session">
+				You are currently viewing as an unregistered
+				user. Would you like to <a href="/login">log in</a> or <a href="signup">
+				sign up</a>?
+			</span>
+			<span tal:condition="python:'username' in request.session">
+				Hello Admin!
+			</span>
+		</p>
+	</div>
+</div>

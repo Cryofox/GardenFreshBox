@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:metal="http://xml.zope.org/namespaces/metal"
+	  xmlns:tal="http://xml.zope.org/namespaces/tal"
+	  metal:define-macro="layout">
+<head>
+	<title>GFB - ${location}</title>
+</head>
+<body>
+<ul tal:content="structure user_header">
+</ul>
+<div metal:define-slot="content"></div>
+</body>
+</html>

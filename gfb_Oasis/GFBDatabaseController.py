@@ -249,10 +249,10 @@ class GFBDatabaseController:
 		with con:
 			cur = con.cursor()
 			#If the HostSites BOTH Exist (even if its the same one for both)
-			cur.execute("SELECT * FROM TBL_ORDERS WHERE id="+str(orderID_i)+")");
-			records = cur.fetchall()
-			return records
+			cur.execute("DELETE FROM TBL_ORDERS WHERE id="+str(orderID_i));
+			return True
 
+		return False
 
 	def cancelOrder(self,orderID_i): 
 		return Boolean
@@ -315,7 +315,7 @@ hostSite_IDs =[1,2]
 gfb.addUser("iheartTHEBESTpickles@mail.com","password","Bob","Pickels","905-Mix-Alot", hostSite_IDs, 1);
 '''
 
-#: Adding a HostSite with Multiple Users
+#WORKING: Adding a HostSite with Multiple Users
 '''
 gfb.addUser("iheartTHEBESTpickles@mail.com","password","Bob","Pickels","905-Mix-Alot", None, 1);
 gfb.addUser("iNotSoMuch@mail.com","password","Bob","Pickels","905-Mix-Alot", None, 1);
@@ -324,7 +324,8 @@ gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", user
 '''
 
 
-#: Adding an Order
+#WORKING: Adding an Order
+'''
 gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", None, None)
 #shouldSendNotifications_bool=First Bool  DonReciept=Second Bool
 #Address Dict = NONE
@@ -344,4 +345,23 @@ gfb.createNewOrder("1992-12-30", "1992-12-31","Bob","Pickels","iheartTHEBESTpick
 #YYYY-MM-DD
 '''
 
+#WORKING: Delete An Order
+'''
+gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", None, None)
+#shouldSendNotifications_bool=First Bool  DonReciept=Second Bool
+#Address Dict = NONE
+addressDict=None
+donationsReciept=False
+totalPaid=0.01
+donation=0.01
+smallBox=0
+largeBox=0
+sendNotifs=False
+hostSitePickUp=1
+hostSiteOrder=1
+voucher=None
+
+gfb.createNewOrder("1992-12-30", "1992-12-31","Bob","Pickels","iheartTHEBESTpickles@mail.com","905-Mix-Alot",sendNotifs,smallBox,largeBox, donation, donationsReciept, addressDict,totalPaid,hostSitePickUp,hostSiteOrder,voucher) 
+gfb.removeOrder(7)
+#YYYY-MM-DD
 '''

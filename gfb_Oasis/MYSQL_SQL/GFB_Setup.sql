@@ -21,15 +21,16 @@ hoursOfOperation int
 CREATE TABLE TBL_ORDERS
 (
 id int Not Null AUTO_INCREMENT primary key,
-distribution_date  date,
 creation_date date ,
+distribution_date  date,
 customer_first_name varchar(255),
 customer_last_name varchar(255),
 customer_email varchar(255),
 customer_phone varchar(255),
 email_notifications boolean ,
-large_quantity int,
 small_quantity int, 
+large_quantity int,
+
 donation decimal,
 donationReceipt boolean, 
 total_paid decimal,

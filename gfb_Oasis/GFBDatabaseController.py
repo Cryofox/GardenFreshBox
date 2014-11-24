@@ -180,14 +180,17 @@ class GFBDatabaseController:
 						cur.execute("INSERT INTO TBL_COORDINATOR_HOSTSITE_REL VALUES (null,"+str(coordinatorIDs_iAr[x])+","+str(record[0][0])+")");
 				print "Success!"
 				return True
-		print "ADDING USER:FAILED"
+		print "ADDING HOSTSITE:FAILED"
 		return False
 
 	def updateHostSite(self,hostSiteID_int,name_str, address_str, city_str, province_str,postalCode_str, coordinatorIDs_iAr, hoursOfOperation_Dict):
+
 		return Boolean						
 	def removeHostSite(self,hostSiteID_int):
+
 		return Boolean
 	def getHostSiteList(self,coordinatorID_i): 
+
 		return ArrDict
 
 	##
@@ -213,7 +216,29 @@ class GFBDatabaseController:
 	#Order Functions
 	#############
 	def createNewOrder(self,dateCreated_str, dateToDistribute_str, firstName_str, lastName_str, email_str, phoneNumber_str, shouldSendNotifications_bool, smallBoxQuantity_i,largeBoxQuantity_i, donations_decimal, donationReceipt_bool, address_Dict, totalPaid_decimal, hostSitePickupID_i, hostSiteOrderID_i, vouchers_iArr): 
-		return Boolean
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+
+		with con:
+
+			cur = con.cursor()
+			#If the HostSites BOTH Exist (even if its the same one for both)
+			if( self.getHostSite(hostSitePickupID_i) is not None and self.getHostSite(hostSiteOrderID_i)):
+				##Check if HostSites in our List exist
+
+				## Add Order to Table, Ben I hate you for making me put 17 parameters in a function =_=
+				#REciept HardCoded to False
+				if(donationsReciept):
+					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 1 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',\'"+str(donations_decimal)+"\',\' 0 \',\'"+str(totalPaid_decimal)+"\',\'"+str(hostSitePickupID_i)+"\',\'"+str(hostSiteOrderID_i)+"\')")
+				else:
+					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 0 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',\'"+str(donations_decimal)+"\',\' 0 \',\'"+str(totalPaid_decimal)+"\',\'"+str(hostSitePickupID_i)+"\',\'"+str(hostSiteOrderID_i)+"\')")
+
+				print "ORDER ADDED:Success!"
+				return True
+		print "ADDING ORDER:FAILED"
+		return False
+
+
 	def updateOrder(self,orderID_i, dateCreated_str, dateToDistribute_str, firstName_str, lastName_str, email_str, phoneNumber_str, shouldSendNotifications_bool, smallBoxQuantity_i,largeBoxQuantity_i, donations_decimal, totalPaid_decimal, hostSitePickupID_i, hostSiteOrderID_i, vouchers_iArr):
 		return Boolean
 
@@ -271,13 +296,32 @@ gfb.addUser("iheartTHEBESTpickles@mail.com","password","Bob","Pickels","905-Mix-
 '''
 
 #: Adding a HostSite with Multiple Users
-
+'''
 gfb.addUser("iheartTHEBESTpickles@mail.com","password","Bob","Pickels","905-Mix-Alot", None, 1);
 gfb.addUser("iNotSoMuch@mail.com","password","Bob","Pickels","905-Mix-Alot", None, 1);
 users = [1,2]
 gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", users, None)
+'''
 
 
+#: Adding an Order
+gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", None, None)
+#shouldSendNotifications_bool=First Bool  DonReciept=Second Bool
+#Address Dict = NONE
+addressDict=None
+donationsReciept=False
+totalPaid=0.01
+donation=0.01
+smallBox=0
+largeBox=0
+sendNotifs=False
+hostSitePickUp=1
+hostSiteOrder=1
+voucher=None
 
-#Works: Adding a hostsite with no Users 
-#gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", None, None)
+gfb.createNewOrder("1992-12-30", "1992-12-31","Bob","Pickels","iheartTHEBESTpickles@mail.com","905-Mix-Alot",sendNotifs,smallBox,largeBox, donation, donationsReciept, addressDict,totalPaid,hostSitePickUp,hostSiteOrder,voucher) 
+
+#YYYY-MM-DD
+'''
+
+'''

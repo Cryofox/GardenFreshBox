@@ -86,7 +86,40 @@ class GFBDatabaseController:
  		return rows_ArrDict
 
  	def getUser(self, email_str):
- 		return Dictionary
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+		with con:
+
+			cur = con.cursor()
+
+			##Check if HostSites in our List exist
+			cur.execute("SELECT * FROM TBL_USERS WHERE email="+str(email_str));
+
+			Dict = cur.fetchall()
+			if(len(Dict)>0):
+				#Return the first Row (The Only Row)
+				return Dict
+
+		return None
+ 	def getUser(self, userid):
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+		with con:
+
+			cur = con.cursor()
+
+			##Check if HostSites in our List exist
+			cur.execute("SELECT * FROM TBL_USERS WHERE id="+str(userid));
+
+			Dict = cur.fetchall()
+			if(len(Dict)>0):
+				#Return the first Row (The Only Row)
+				return Dict
+
+		return None
+
+
+
 
 	def getCoordinatorList(self,hostSiteID_int):
 		return  rows_ArrDict
@@ -122,29 +155,29 @@ class GFBDatabaseController:
 		with con:
 
 			cur = con.cursor()
-			if(not self.userExists(email_str)):
+			if(not self.hostSiteNameExists(name_str)):
 				##Check if HostSites in our List exist
 				#If a "non empty" HostSite list was passed
-				if(hstSite_iArr is not None):
-					for x in range (len(hstSite_iArr)):
+				if(coordinatorIDs_iAr is not None):
+					for x in range (len(coordinatorIDs_iAr)):
 						# If the Host Site Does not exist in the DB return false
-						if ( self.getHostSite(hstSite_iArr[x]) == None ):
+						if ( self.getUser(coordinatorIDs_iAr[x]) == None ):
 							print "Add User FAILED: A Link was attempted with a non-existing Host Site"
 							return False
 
 
 				## Add User to Table
-				cur.execute("INSERT INTO TBL_USERS VALUES (null,\'"+email_str+"\',\'"+pass_str+"\',\'"+fName_str+"\',\'"+lName_str+"\',\'"+phoneNum_str+"\',"+str(credentials_i)+")");
+				cur.execute("INSERT INTO TBL_HOSTSITES VALUES (null,\'"+name_str+"\',\'"+address_str+"\',\'"+city_str+"\',\'"+province_str+"\',\'"+postalCode_str+"\',null,null)");
 
-				#Grab Added User ID
-				cur.execute("SELECT * FROM TBL_USERS WHERE email=\'"+email_str+"\'");
+				#Grab Added HOSTSITE ID
+				cur.execute("SELECT * FROM TBL_HOSTSITES WHERE name=\'"+name_str+"\'");
 				record=cur.fetchall()
 				print str(record[0][0])
 				
 				## Update Hostsite(s) Rel with this User
-				if(hstSite_iArr is not None and record>0):
-					for x in range (len(hstSite_iArr)):			
-						cur.execute("INSERT INTO TBL_COORDINATOR_HOSTSITE_REL VALUES (null,"+str(record[0][0])+","+str(hstSite_iArr[x])+")");
+				if(coordinatorIDs_iAr is not None and record>0):
+					for x in range (len(coordinatorIDs_iAr)):			
+						cur.execute("INSERT INTO TBL_COORDINATOR_HOSTSITE_REL VALUES (null,"+str(coordinatorIDs_iAr[x])+","+str(record[0][0])+")");
 				print "Success!"
 				return True
 		print "ADDING USER:FAILED"
@@ -166,12 +199,12 @@ class GFBDatabaseController:
 			cur = con.cursor()
 
 			##Check if HostSites in our List exist
-			cur.execute("SELECT id=\'"+str(hostSiteID_i)+"\' FROM TBL_HOSTSITES");
+			cur.execute("SELECT * FROM TBL_HOSTSITES WHERE id="+str(hostSiteID_i));
 
 			Dict = cur.fetchall()
 			if(len(Dict)>0):
 				#Return the first Row (The Only Row)
-				return Dict[0]
+				return Dict
 
 		return None
 
@@ -230,23 +263,20 @@ gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", None
 '''
 
 #Works: Adding a user with MultipleHostSites
-
+'''
 gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", None, None)
 gfb.addHostSite("Some Other Place", "221B Baker Street", "London", "On","B4TM4N", None, None)
 hostSite_IDs =[1,2]
 gfb.addUser("iheartTHEBESTpickles@mail.com","password","Bob","Pickels","905-Mix-Alot", hostSite_IDs, 1);
-
+'''
 
 #: Adding a HostSite with Multiple Users
-'''
+
 gfb.addUser("iheartTHEBESTpickles@mail.com","password","Bob","Pickels","905-Mix-Alot", None, 1);
 gfb.addUser("iNotSoMuch@mail.com","password","Bob","Pickels","905-Mix-Alot", None, 1);
-
 users = [1,2]
 gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", users, None)
 
-hostSite_IDs =[1,2]
-'''
 
 
 #Works: Adding a hostsite with no Users 

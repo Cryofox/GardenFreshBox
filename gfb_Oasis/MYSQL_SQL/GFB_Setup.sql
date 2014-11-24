@@ -40,13 +40,6 @@ hostsitepickup_idFK int, foreign key(hostsitepickup_idFK) REFERENCES TBL_HOSTSIT
 hostsitecreated_idFK int, foreign key(hostsitecreated_idFK) REFERENCES TBL_HOSTSITES(id)
 );
 
-
-
-
-
-
-
-
 #Credentials, User Types: Admin, Coord, Volunteer
 CREATE TABLE TBL_CREDENTIALS
 (

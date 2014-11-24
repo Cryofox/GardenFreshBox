@@ -269,23 +269,48 @@ class GFBDatabaseController:
 
 			cur = con.cursor()
 			#If the HostSites BOTH Exist (even if its the same one for both)
-			cur.execute("SELECT * FROM TBL_ORDERS ");
+			cur.execute("SELECT * FROM TBL_ORDERS WHERE creation_date> \'"+beginDate_Str+"\' AND creation_date< \'"+ endDate_str+"\';")
+			records = cur.fetchall()
+			return records
+		return None
+
+	def getAllUnpaidOrdersByDistributionDate(self,beginDate_Str, endDate_str): 
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+
+		with con:
+			cur = con.cursor()
+			#If the HostSites BOTH Exist (even if its the same one for both)
+			cur.execute("SELECT * FROM TBL_ORDERS WHERE total_paid=0 AND creation_date> \'"+beginDate_Str+"\' AND creation_date< \'"+ endDate_str+"\';")
 			records = cur.fetchall()
 			return records
 
-	def getAllUnpaidOrdersByDistributionDate(self,beginDate_Str, endDate_str): 
-		return ArrDict
+		return None
+
+
 	def getAllCanceledOrdersByDistributionDate(self,beginDate_str, endDate_str):
 		return ArrDict
 	def getAllPaidOrdersByDistributionDate(self,beginDate_str, endDate_str):
-		return ArrDict
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+
+		with con:
+			cur = con.cursor()
+			#If the HostSites BOTH Exist (even if its the same one for both)
+			cur.execute("SELECT * FROM TBL_ORDERS WHERE total_paid>0 AND creation_date> \'"+beginDate_Str+"\' AND creation_date< \'"+ endDate_str+"\';")
+
+			records = cur.fetchall()
+			return records
+
+		return None
+
+
 
 	def getOrderByDistributionDate(self,hostSiteID_i, beginDate_str, endDate_Stre): 
 		return ArrDict	
 	def getUnpaidOrdersByDistributionDate(self,hostSiteID_i, beginDate_str, endDate_Stre): 
 		return ArrDict
-	def getUnpaidOrdersByDistributionDate(self,hostSiteID_i, beginDate_str, endDate_Stre): 
-		return ArrDict
+
 
 
 
@@ -331,7 +356,7 @@ gfb.addHostSite("Uncle Bens", "221B Baker Street", "London", "On","B4TM4N", None
 #Address Dict = NONE
 addressDict=None
 donationsReciept=False
-totalPaid=0.01
+totalPaid=0.00
 donation=0.01
 smallBox=0
 largeBox=0
@@ -365,3 +390,7 @@ gfb.createNewOrder("1992-12-30", "1992-12-31","Bob","Pickels","iheartTHEBESTpick
 gfb.removeOrder(7)
 #YYYY-MM-DD
 '''
+
+rows=gfb.getAllUnpaidOrdersByDistributionDate("1900-01-01","2000-01-01")
+for row in rows:
+	print str(row)

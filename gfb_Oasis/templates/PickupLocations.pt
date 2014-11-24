@@ -1,0 +1,329 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>GardenFresh Box</title>
+    <link rel="stylesheet" href="/static/css/foundation.css" />
+    <script src="/static/js/vendor/modernizr.js"></script>
+
+    <!--code for GMap -->
+    <!-- CSS -->
+
+
+    <style>
+      html, body, #map_canvas {
+      /*  height: 100%;
+        width : 100%;*/
+    
+        margin: 0px;
+        padding: 0px
+      }
+
+
+      #Content_LeftSide{
+		max-height: 100%;
+    	overflow-y: scroll;
+	  }
+
+      #Content_RightSide {
+		background: #0000FF;
+
+		min-width: 200px;
+		margin: 0px;
+	  }	  
+	  #button_Green{
+	  	background: #29A329;
+	  }
+	  #button_Cancel{
+	  	background: #FF9900;
+	  }	  
+
+/*
+	#wrapper {
+    width: 98%; 
+    max-width: 1200px;
+	}
+*/
+    </style>
+
+<!--
+	Sample Fixed Size
+     #map_canvas{    
+
+    	width:500px;
+    	height: 400px;
+    
+    	background-color: #CCC;
+    }
+-->
+
+
+ 
+    <!-- Logic -->
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script>
+$(window).load(function(){
+    $('#wcont1b .panel').jScrollPane();
+});
+</script>
+	<script> 
+
+	//Base Code for Setting up a Google Map
+
+	/* Google Map Code 
+	------------------*/
+		function AddMarker(val1,val2,val3) {
+		  var marker = new google.maps.Marker({
+		      position: new google.maps.LatLng(val1,val2),
+		      map: map,
+		      title: val3
+
+		  });
+		}
+		function initialize() 
+		{
+		 	var mapCanvas = document.getElementById('map_canvas');
+
+		    var mapOptions = 
+			    {
+			      center: new google.maps.LatLng(43.528434, -80.223534),
+			      zoom: 12,
+			      mapTypeId: google.maps.MapTypeId.ROADMAP
+			    }
+			map = new google.maps.Map(mapCanvas,mapOptions);
+			//addMarker(LatLng(40,-78));
+
+			AddMarker(43.528434,-80.223534, "CSA Foodbank");
+			AddMarker(43.560058,-80.270114, "Evergreen Seniors' Center");
+			AddMarker(43.5706658,-80.2217624, "Grange Hill East Neighbourhood Group");
+		}
+
+		function CenterLoc(val1,val2) 
+		{
+		//How to test if button works
+		//	window.location.href = "http://example.com";
+
+		latLng = new google.maps.LatLng(val1,val2);
+		map.setCenter(latLng);
+
+		}
+
+	/*====================*/
+
+
+	/* List Code 
+	------------------*/
+		function SetupList() 
+		{
+			LoadContents()
+
+
+		}
+
+	//This is where the Contents get pulled and Parsed
+	//This is also where the SQL Query code will replace the current fetch routine
+		function LoadContents()
+		{
+
+
+
+		
+	    
+		}
+	/*====================*/
+		var map;
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+	</script>
+
+
+
+
+
+
+  </head>
+
+
+
+  <body>
+
+
+
+
+
+<!-- Top Bar Code, Copy Paste this on other pages for consistency -->
+
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="GardenFreshBox_Home.html">Garden Fresh Box</a></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Left Nav Section -->
+    
+	<ul class="left">
+		<li class="has-dropdown">
+		 <a href="#">Admin Controls</a>
+			<ul class="dropdown">
+				<li><a href="#">Change Account Settings</a></li>
+				<li><a href="#">View and Edit Coordinators</a></li>   
+				<li><a href="#">View and Edit HostSites</a></li>
+				<li><a href="#">View and Edit Sales</a></li>
+			</ul>
+
+		</li>
+	</ul>
+
+      <!-- Right Nav Section -->
+	<ul class="right">
+		<li><a href="BuyGoodies.html">Buy Goodies</a></li>
+		<li><a href="#">Recipes</a></li>
+		<li><a href="PickupLocations.html">Pickup Locations</a></li>
+		<li><a href="News.html">News</a></li>
+		<li><a href="#">F.A.Q.</a></li>
+		<li><a href="#">Contact us</a></li>
+		<li class="has-form">
+		<button id="button_Green" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" data-options="align:left">Login</button>
+
+		</li>
+
+	</ul>
+
+    </section>
+
+  </nav>
+
+  			<!-- Top bar messes with formatting, reference the dropdown here instead to fix -->
+			<ul id="drop1" class="f-dropdown small"  data-dropdown-content aria-hidden="true" tabindex="-1">
+				<form>
+				<fieldset>
+					<legend>Credentials</legend>
+					<div class="row collapse">
+						<div class="small-3 columns">
+							<span class="prefix">username:</span>
+						</div>
+
+						<div class="small-9 columns">
+							<input type="text" placeholder="...">
+						</div>
+					</div>
+
+					<div class="row collapse">
+						<div class="small-3 columns">
+							<span class="prefix">password:</span>
+						</div>
+						<div class="small-9 columns">
+							<input type="text" placeholder="...">
+						</div>
+					</div>
+
+					<div class="row collapse">  	
+						<div class="small-9 columns">
+							<a href="#" class="button tiny radius" id="button_Green">Submit</a>
+							<a href="#"   data-dropdown-content aria-hidden="false" class="button tiny radius" id="button_Cancel">Cancel</a>						
+						</div>
+					</div>
+
+				</fieldset>
+				</form>
+
+			
+			</ul>
+<!-- Top Bar Code End-->
+
+<!-- Manual Positioning due to GMaps API -->
+<div style ="width:100%; height: 90%">
+
+	<!-- Main Panel -->
+	<div style=" width:30%; height: 100%; float:left">
+		<div id="Content_LeftSide"  >
+
+
+
+		<!-- This needs to be Populated Dynamically -->
+
+			<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					CSA Foodbank
+					</h6> 
+					<h4><small>
+					University of Guelph Health Services<br>
+					50 Stone Road East, Guelph<br>
+					ON, N1G 2W1<br>
+					(519) 824-4120 ext. 52561 <br>
+					<a href="mailto:foodbank@uoguelph.ca">foodbank@uoguelph.ca</a>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.528434,-80.223534)">Locate Me </a>	
+				</div>		
+			<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Evergreen Seniors' Center
+					</h6> 
+					<h4><small>
+					Evergreen Seniors Centre<br>
+					683 Woolwich St, Guelph<br>
+					ON N1H 3Z1<br>
+					(519) 823-1291 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.560058,-80.270114)">Locate Me </a>	
+				</div>	
+			<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Grange Hill East Neighbourhood Group
+					</h6> 
+					<h4><small>
+					University of Guelph Health Services<br>
+					525 Grange Rd, Guelph<br>
+					ON N1E 7C8<br>
+					(519) 836-9427 <br>
+					foodbank@uoguelph.ca
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+
+			</div>
+
+		</div>
+		<div id="map_canvas" style="width: 70%; height:100%; float:right" > </div>
+		
+
+
+</div>
+
+
+
+<!--	<div id="map_canvas" style="width: 100%; height: 480px"> </div> -->
+	<!-- Dependency Scripts -->
+  <script src="/static/js/vendor/jquery.js"></script>
+  <script src="/static/js/foundation/foundation.js"></script>
+
+  <script src="/static/js/foundation/foundation.topbar.js"></script>
+  <script src="/static/js/foundation/foundation.dropdown.js"></script>
+  <script src="/static/js/foundation/foundation.tab.js"></script>
+  <script src="/static/js/foundation/foundation.slider.js"></script>
+  <script src="/static/js/foundation/foundation.reveal.js"></script>
+
+  <!-- Other JS plugins can be included here -->
+  <script>
+    $(document).foundation();
+  </script>
+
+  </body>
+</html>

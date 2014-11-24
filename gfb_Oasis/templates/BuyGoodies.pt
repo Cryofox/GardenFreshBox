@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="/static/css/foundation.css" />
+    <script src="/static/js/vendor/modernizr.js"></script>
+  </head>
+
+
+
+  <body>
+<script>
+	function Click(val) 
+	{document.getElementById(val).click();}
+</script>
+
+
+
+
+<!-- Top Bar Code, Copy Paste this on other pages for consistency -->
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">Garden Fresh Box</a></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+        <!-- Left Nav Section -->
+    
+	<ul class="left">
+		<li class="has-dropdown">
+		<a href="#">Admin Controls</a>
+		<ul class="dropdown">
+		<li><a href="#">Change Account Settings</a></li>
+		<li><a href="#">View and Edit Coordinators</a></li>   
+		<li><a href="#">View and Edit HostSites</a></li>
+		<li><a href="#">View and Edit Sales</a></li>
+		</ul>
+
+		</li>
+	</ul>
+
+      <!-- Right Nav Section -->
+	<ul class="right">
+		<li><a href="/BuyGoodies">Buy Goodies</a></li>
+		<li><a href="#">Recipes</a></li>
+		<li><a href="/PickupLocations">Pickup Locations</a></li>
+		<li><a href="/News">News</a></li>
+		<li><a href="#">F.A.Q.</a></li>
+		<li><a href="#">Contact us</a></li>
+		<li class="has-form">
+		<button data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" data-options="align:left">Login</button>
+
+		</li>
+
+	</ul>
+
+    </section>
+
+  </nav>
+
+  			<!-- Top bar messes with formatting, reference the dropdown here instead to fix -->
+			<ul id="drop1" class="f-dropdown small"  data-dropdown-content aria-hidden="true" tabindex="-1">
+				<form>
+				<fieldset>
+				<legend>Credentials</legend>
+					  <div class="row collapse">
+					    <div class="small-3 columns">
+					      <span class="prefix">username:</span>
+					    </div>
+					    <div class="small-9 columns">
+					      <input type="text" placeholder="...">
+					    </div>
+					  </div>
+
+					  <div class="row collapse">
+					    <div class="small-3 columns">
+					      <span class="prefix">password:</span>
+					    </div>
+					    <div class="small-9 columns">
+					      <input type="text" placeholder="...">
+					    </div>
+					  </div>
+					<div class="row collapse">  	
+					<div class="small-9 columns">
+						<a href="#" class="button tiny radius">Submit</a>
+						<a href="#" class="button tiny radius">Cancel</a>						
+					</div></div>
+
+				</fieldset>
+				</form>
+
+			
+			</ul>
+
+	<!-- Relevant Purchase Code -->
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel0">Buy or Donate?</a></dd>
+  <dd><a href="#panel1" id="tab1">Location?</a></dd>  
+  <dd><a href="#panel2" id="tab2">What would you like?</a></dd>
+  <dd><a href="#panel3" id="tab3">Tab 3</a></dd>
+  <dd><a href="#panel4" id="tab4">Tab 4</a></dd>
+</dl>
+
+<!--------------------------------->
+<div class="tabs-content">
+
+
+  <div class="content active" id="panel0">
+  	  <a onclick="myFunction('tab1')" class="button tiny radius">Next </a> <!-- Jquery -->
+
+  	  <a class="button tiny radius">Donate.</a> 
+  </div>
+
+  <div class="content" id="panel1">
+
+
+      <label>Choose Your Location:</label>
+      <input type="radio" name="pokemon" value="Red" id="Location1"><label for="Location1">Location1</label><br>
+	  <input type="radio" name="pokemon" value="Blue" id="Location2"><label for="Location2">Location2</label> <br>
+      <input type="radio" name="pokemon" value="Location3" id="Location3"><label for="Location3">Location3</label><br>
+      <input type="radio" name="pokemon" value="Location4" id="Location4"><label for="Location4">Location4</label><br>
+      <input type="radio" name="pokemon" value="Location5" id="Location4"><label for="Location5">Location5</label><br>
+
+      <label>Or let us find the closest one:</label>
+	  <a href="#" class="button tiny radius">Find Near Me</a> <br>
+
+
+  	  <a onclick="myFunction('tab2')" class="button tiny radius">Next </a> <!-- Jquery -->
+
+
+  </div>
+
+  <div class="content" id="panel2">
+    <p>
+    Here small and large boxes are shown. Voucher code,
+    total is calculated. and button linking to paypal.
+    </p>
+
+    <div class="row">
+		<div class="small-4 columns">
+			<fieldset>
+							<legend>Credentials</legend>
+								  <div class="row collapse">
+								    <div class="small-3 columns">
+								      <span class="prefix">Large Boxes:</span>
+								    </div>
+								    <div class="small-9 columns">
+								      <input type="text" placeholder="0">
+								    </div>
+								  </div>
+
+								  <div class="row collapse">
+								    <div class="small-3 columns">
+								      <span class="prefix">Small Boxes:</span>
+								    </div>
+								    <div class="small-9 columns">
+								      <input type="text" placeholder="0">
+								    </div>
+								  </div>
+
+								  <div class="row collapse">
+								    <div class="small-3 columns">
+								      <span class="prefix">Voucher Code:</span>
+								    </div>
+								    <div class="small-9 columns">
+								      <input type="text" placeholder="xxxxxxxxxx">
+								    </div>
+								  </div>
+
+								  <div class="row collapse">
+								    <div class="small-3 columns">
+								      <span class="prefix">Total:</span>
+								    </div>
+								    <div class="small-9 columns">
+								      <input id="valDisabled" disabled type="text"  placeholder="$5000">
+								    </div>
+								  </div>					  
+
+
+
+			</fieldset>
+		</div>
+		<div class="small-4 columns">
+					<ul class="pricing-table">
+					  <li class="title">Sample <br>Large Box</li>
+					  <li class="price">$20</li>
+					  <div>
+						  <li>10 Apples</li>
+						  <li>2 lbs Spanish Onions</li>
+						  <li>1 Butternut Squash</li>
+						  <li>2 lbs of Carrots</li>
+						  <li>1 lb of Candycane Beets</li>
+						  <li>1 Garlic Head</li>
+						  <li>1 Pumpkin Pie</li>
+						  <li>1 pie pumpkin</li>
+						  <li>4 Pears</li>
+						  <li>1 Bunch of Leeks</li>		
+						  <li>1 Lettuce Head</li>	
+						  <li>5 lbs of Potatoes</li>						  							  				  
+					  </div>
+					</ul>
+		</div>
+		<div class="small-4 columns">
+					<ul class="pricing-table">
+					  <li class="title">Sample Small Box</li>
+					  <li class="price">$15</li>
+					  <div>
+						  <li>5 Apples</li>
+						  <li>2 lbs Spanish Onions</li>
+						  <li>2 lbs of Carrots</li>
+						  <li>1 lb of Candycane Beets</li>
+						  <li>1 Garlic Head</li>
+						  <li>1 Pumpkin Pie</li>
+						  <li>1 pie pumpkin</li>
+						  <li>4 Pears</li>
+						  <li>1 Red Pepper</li>		
+						  <li>1 Lettuce Head</li>	
+						  <li>2.5 lbs of Potatoes</li>						  							  				  
+					  </div>
+					</ul>
+		</div>
+
+
+	</div>
+
+  	  <a onclick="myFunction('tab4')" class="button tiny radius">Next </a> <!-- Jquery -->
+
+
+  </div>
+
+
+  <div class="content" id="panel3">
+
+  	  <a onclick="myFunction('tab4')" class="button tiny radius">Next </a> <!-- Jquery -->
+
+  </div>
+
+
+  <div class="content" id="panel4">
+
+  	<a class="button tiny radius">Pay </a> <!-- Jquery -->
+  </div>
+
+
+</div>
+<!--------------------------------->
+
+
+
+
+<!--	<div id="map_canvas" style="width: 100%; height: 480px"> </div> -->
+	<!-- Dependency Scripts -->
+  <script src="/static/js/vendor/jquery.js"></script>
+  <script src="/static/js/foundation/foundation.js"></script>
+
+  <script src="/static/js/foundation/foundation.topbar.js"></script>
+  <script src="/static/js/foundation/foundation.dropdown.js"></script>
+  <script src="/static/js/foundation/foundation.tab.js"></script>
+  <script src="/static/js/foundation/foundation.slider.js"></script>
+  <script src="/static/js/foundation/foundation.reveal.js"></script>
+
+  <!-- Other JS plugins can be included here -->
+  <script>
+    $(document).foundation();
+  </script>
+
+  </body>
+</html>

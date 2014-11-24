@@ -1,5 +1,6 @@
 from pyramid.httpexceptions import HTTPFound
 import hashlib
+import GFBDatabaseController
 
 def process_login_request(request):
 	if not 'user' in request.params or not 'pass' in request.params or request.params['user'] == '' or request.params['pass'] == '':
@@ -17,3 +18,6 @@ def process_login_request(request):
 def process_logout_request(request):
 	del request.session['username']
 	return HTTPFound("/")
+
+
+

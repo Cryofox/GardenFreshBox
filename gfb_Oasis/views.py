@@ -20,11 +20,6 @@ def user_header(request):
 		with open('templates/admin_header.pt') as f:
 			return f.read()
 
-@view_config(renderer="templates/GFB_Home.pt")
-def index_view(request):
-	#if the user is logged in redirect to the appropriate home page
-	return {"layout": site_layout(), "user_header": user_header(request), "location": "Home"}
-	#return 'Ok'
 
 
 @view_config(renderer="templates/login.pt", name="login")
@@ -62,3 +57,26 @@ def logout_view(request):
 
 
 
+
+############## OASIS_GFB PAGES
+@view_config(renderer="templates/GardenFreshBox_Home.pt")
+def index_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "Home"}
+	#return 'Ok'
+
+@view_config(renderer="templates/BuyGoodies.pt",name="BuyGoodies")
+def BuyGoodies_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "Buy Goodies"}
+	#return 'Ok'
+@view_config(renderer="templates/News.pt",name="News")
+def News_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "News"}
+	#return 'Ok'
+@view_config(renderer="templates/PickupLocations.pt",name="PickupLocations")
+def PickupLocations_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "PickupLocations"}
+	#return 'Ok'

@@ -31,9 +31,9 @@ email_notifications boolean ,
 small_quantity int, 
 large_quantity int,
 
-donation decimal,
+donation decimal (10,2),
 donationReceipt boolean, 
-total_paid decimal,
+total_paid decimal (10,2),
 
 
 hostsitepickup_idFK int, foreign key(hostsitepickup_idFK) REFERENCES TBL_HOSTSITES(id),

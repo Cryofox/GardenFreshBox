@@ -114,7 +114,7 @@ class GFBDatabaseController:
 			Dict = cur.fetchall()
 			if(len(Dict)>0):
 				#Return the first Row (The Only Row)
-				return Dict
+				return Dict[0]
 
 		return None
 
@@ -207,7 +207,7 @@ class GFBDatabaseController:
 			Dict = cur.fetchall()
 			if(len(Dict)>0):
 				#Return the first Row (The Only Row)
-				return Dict
+				return Dict[0]
 
 		return None
 
@@ -229,9 +229,9 @@ class GFBDatabaseController:
 				## Add Order to Table, Ben I hate you for making me put 17 parameters in a function =_=
 				#REciept HardCoded to False
 				if(donationsReciept):
-					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 1 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',\'"+str(donations_decimal)+"\',\' 0 \',\'"+str(totalPaid_decimal)+"\',\'"+str(hostSitePickupID_i)+"\',\'"+str(hostSiteOrderID_i)+"\')")
+					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 1 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',"+str(donations_decimal)+",\' 0 \',\'"+str(totalPaid_decimal)+"\',"+str(hostSitePickupID_i)+","+str(hostSiteOrderID_i)+")")
 				else:
-					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 0 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',\'"+str(donations_decimal)+"\',\' 0 \',\'"+str(totalPaid_decimal)+"\',\'"+str(hostSitePickupID_i)+"\',\'"+str(hostSiteOrderID_i)+"\')")
+					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 0 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',"+str(donations_decimal)+",\' 0 \',\'"+str(totalPaid_decimal)+"\',"+str(hostSitePickupID_i)+","+str(hostSiteOrderID_i)+")")
 
 				print "ORDER ADDED:Success!"
 				return True
@@ -243,7 +243,17 @@ class GFBDatabaseController:
 		return Boolean
 
 	def removeOrder(self,orderID_i): 
-		return Boolean
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+
+		with con:
+			cur = con.cursor()
+			#If the HostSites BOTH Exist (even if its the same one for both)
+			cur.execute("SELECT * FROM TBL_ORDERS WHERE id="+str(orderID_i)+")");
+			records = cur.fetchall()
+			return records
+
+
 	def cancelOrder(self,orderID_i): 
 		return Boolean
 
@@ -252,7 +262,17 @@ class GFBDatabaseController:
 
 
 	def getAllOrdersByDistributionDate(self,beginDate_str, endDate_str):
-		return ArrDict
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+
+		with con:
+
+			cur = con.cursor()
+			#If the HostSites BOTH Exist (even if its the same one for both)
+			cur.execute("SELECT * FROM TBL_ORDERS ");
+			records = cur.fetchall()
+			return records
+
 	def getAllUnpaidOrdersByDistributionDate(self,beginDate_Str, endDate_str): 
 		return ArrDict
 	def getAllCanceledOrdersByDistributionDate(self,beginDate_str, endDate_str):

@@ -87,12 +87,11 @@ def Admin_Sales_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_Sales"}
 	#return 'Ok'
-	
-@view_config(renderer='string')
-def aview(request):
-    print(request.json_body)
-    return 'OK'
 
+@view_config(renderer='json',name="Admin_Sales", xhr=True )
+def ajax(request):
+    test = "hello"
+    return dict(test=test)
 
 ########## INBETWEENS
 

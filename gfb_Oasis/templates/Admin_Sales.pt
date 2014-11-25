@@ -268,25 +268,29 @@
     $(document).foundation();
 
     function FetchHostSites() {
+    <!-- HashTag Ugly Ajax -->
        $.ajax({
-        type: "POST",
-        url: "details",
-        dataType: "json",
-        data: {
-            'ajax_id': iID,
-            'ajax_name': sName,
+        url: "http://localhost:8080/Admin_Sales",  
+        type: "post",
+        data: {},
+        dataType: 'text',
+        success: function(response, textStatus, jqXHR) {
+            alert(response);
         },
-        success: function(data) {
-                iReturned_value = data.ID;
-            }, 
-    	})
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(textStatus, errorThrown);
+        }
+
+		});
     }
+
+
 
 
 	function PopulateGeneralList(val)
 	{
 		alert('Page Has Loaded...Check For Change in Lists?');
-
+		FetchHostSites();
 
 
 

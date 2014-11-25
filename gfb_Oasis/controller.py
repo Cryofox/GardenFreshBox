@@ -22,5 +22,9 @@ def process_logout_request(request):
 
 
 
+def process_UpdateRecord_request(request):
+	del request.session['username']
+	return
+	#return HTTPFound("/")
 
 

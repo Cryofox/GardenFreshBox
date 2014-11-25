@@ -109,7 +109,7 @@
 			</ul>
 
 </div>
-			<H1> ADMIN SALES </H1>
+			<H1> ADMIN HOSTSITES </H1>
 
 			<a href="#" class="button tiny radius" data-reveal-id="AddNew_Customer">Add New +</a>
 	
@@ -131,18 +131,18 @@
  		      <th width="100"> Voucher </th> 		      
 		      <th width="150"> Total</th>
 		      <th width="150"> Donation</th>	
-		      <th width="150"> HostSite</th>			      
 		    </tr>
 		  </thead>
 
 <!----------------GENERATE VIA DATABASE HERE !!!! ----------->
 			<tbody id="Dynamic Target">
 
+			
 		   <!-- all divs will append here -->
 		    <h1>This is where the Dynamic Stuff Goes</h1>
 
 			<tr>
-			<td> <a href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a> </td>
+			<td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td>
 			<td> Mr.</td>			
 			<td> Bean</td>				
 			<td> 911</td>	
@@ -153,62 +153,7 @@
 			<td>Dynamic!!!</td>
 			<td>$1,000,000</td>
 			<td>$-10</td>
-			<td>1</td>
 			</tr>
-
-
-			<div id="edit_RecordModal" class="reveal-modal" data-reveal>
-				  <h2>Edit Customer Order</h2>
-			<p>Enter The Values you'd like to change and press submit to confirm.<br> Cancel Otherwise</p>
-			<div class="row">
-					<div class="small-6 columns">
-						<!-- First Column -->
-						<label>First Name:
-							<input id="input_FName" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Last Name:
-							<input id="input_LName" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Phone Number:
-							<input id="input_PNum"  type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Email:
-							<input id="input_Email" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Large Boxes:
-							<input id="input_Large Boxes" type="text" placeholder="large-12.columns" />
-						</label>	
-
-						<label>HostSite:
-							<input id="input_HostSite" type="text" placeholder="large-12.columns" />
-						</label>
-					</div>
-					<div class="small-6 columns">
-						<!-- Second Column -->
-		
-						<label>PurchaseDate:
-							<input id="input_PurchaseDate" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Voucher:
-							<input id="input_Voucher" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Total Paid:
-							<input id="input_Total Paid" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Donations:
-							<input id="input_Donations" type="text" placeholder="large-12.columns" />
-						</label>
-												<label>Small Boxes:
-							<input id="input_Small Boxes" type="text" placeholder="large-12.columns" />
-						</label>	
-					</div>
-			</div>
-			<a class="close-reveal-modal" id="CloseContextModal">&#215;</a>
-
-			<a href="#" OnClick="Click('CloseContextModal'); UpdateRecord();" class="button tiny radius" >Submit</a> <!-- Perform OnClick for Close -->
-			<a href="#" OnClick="Click('CloseContextModal'); " class="button tiny radius">Cancel</a>  <!-- Perform OnClick for Close -->
-
-			</div>
 
 		  </tbody>
 		</table>
@@ -260,46 +205,12 @@
   <script>
     $(document).foundation();
 
- <!-- Ajax POSTS -->
-
- 	<!-- Given TextBox ID's Constructs the Ajax POST and sends -->
-     function UpdateRecord() {
-
-
-
-
-
-
-       $.ajax({
-        url: "http://localhost:8080/Admin_Sales",  
-        type: "post",
-        data: {field1: "UpdateOrder", field2: "NotFetch"},
-        dataType: 'json',
-        success: function(response) {
-
-		var myObject = JSON.parse(response);        
-		alert(myObject[0]);	
-
-		PopulateGeneralList(myObject);	
-	
- 			
-
-        },
-        error: function(jqXHR, textStatus, errorThrown){
-            alert(textStatus, errorThrown);
-        }
-
-		});
-
-		
-    };
-
     function FetchHostSites() {
 
        $.ajax({
         url: "http://localhost:8080/Admin_Sales",  
         type: "post",
-        data: {field1: "Fetch", field2: "NotFetch"},
+        data: {},
         dataType: 'json',
         success: function(response) {
 
@@ -319,13 +230,6 @@
 
 		
     };
- <!--------------->
-<!-- Button Click -->
-	function Click(btnID) 
-	{document.getElementById(btnID).click();}
-
-
-
 
 
 
@@ -343,7 +247,7 @@
 		<!--theDiv.innerHTML += '<tr><td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td><td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td><td> 01,01,1992</td><td>Dynamic!!!</td><td>$1,000,000</td></tr><br>';-->
 
 
-		theDiv.innerHTML +='<tr><td><a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a></td><td>'+records[i][3]+'</td><td>'+records[i][4]+'</td><td>'+records[i][6]+'</td><td>'+records[i][5]+'</td><td>'+records[i][9]+'</td><td>'+records[i][8]+'</td><td>'+records[i][2]+'</td><td>Dynamic!!!</td><td>'+records[i][12]+'</td><td>'+records[i][10]+'</td><td>'+records[i][14]+'</td></tr>';
+		theDiv.innerHTML +='<tr><td><a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a></td><td>'+records[i][3]+'</td><td>'+records[i][4]+'</td><td>'+records[i][6]+'</td><td>'+records[i][5]+'</td><td>'+records[i][9]+'</td><td>'+records[i][8]+'</td><td>'+records[i][2]+'</td><td>Dynamic!!!</td><td>'+records[i][12]+'</td><td>'+records[i][10]+'</td></tr>';
 
 		}
 

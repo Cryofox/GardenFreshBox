@@ -211,6 +211,22 @@ class GFBDatabaseController:
 
 		return None
 
+	def getAllHostSites(self):
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+		with con:
+
+			cur = con.cursor()
+
+			##Check if HostSites in our List exist
+			cur.execute("SELECT * FROM TBL_HOSTSITES");
+
+			records = cur.fetchall()
+			if(len(records)>0):
+				return records
+
+		return None	
+
 
 	#############
 	#Order Functions

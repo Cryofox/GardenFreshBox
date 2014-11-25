@@ -89,12 +89,56 @@ def Admin_Sales_view(request):
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_Sales"}
 	#return 'Ok'
 
+#Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 @view_config(renderer='json',name="Admin_Sales", xhr=True )
-def ajax(request):
+def Sales_ajax(request):
+
+	print "Params="+request.params["field1"]
+
+	if (request.params["field1"]=="Fetch"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+		records=myDB.getAllOrdersByDistributionDate("1900-01-30","3000-01-30")
+
+		recordList= list()
+		for x in range(len(records)):
+			valList = list()
+			for y in range(len(records[x])):
+				valList.append( str(records[x][y]));
+
+			recordList.append(valList);
+
+		print "Records="+str(records)
+		print "JSON DUMP="+json.dumps(recordList)
+	    #return records
+		return (json.dumps(recordList))
+	if (request.params["field1"]=="UpdateOrder"):
+		myDB = GFBDatabaseController();
+		#Update Order
+
+
+
+#Used to Update DB
+
+
+
+
+
+
+
+@view_config(renderer="templates/Admin_HostSites.pt",name="Admin_HostSites")
+def HostSite_Sales_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_HostSites"}
+	#return 'Ok'
+
+#Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
+@view_config(renderer='json',name="Admin_HostSites", xhr=True )
+def HostSite_ajax(request):
 	#test = "hello"
 
 	myDB = GFBDatabaseController();
-	records=myDB.getAllOrdersByDistributionDate("1900-01-30","3000-01-30")
+	records=myDB.getAllHostSites();
 
 	recordList= list()
 	for x in range(len(records)):
@@ -109,6 +153,16 @@ def ajax(request):
     #return records
 	return (json.dumps(recordList))
 
+
 ########## INBETWEENS
 
 
+
+#Helper function to parse through Fields, returns list
+def ParseFields(ajaxSTR):
+	paramList = str(ajaxSTR.params).split("&")
+	#for i in range (len(paramList)):
+		#Strip off fieldX= from strings
+	#	paramList[i] =  (paramList[i].split("="))[1]
+
+	return paramList

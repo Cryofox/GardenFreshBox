@@ -41,7 +41,7 @@
 		<ul class="dropdown">
 		<li><a href="#">Change Account Settings</a></li>
 		<li><a href="#">View and Edit Coordinators</a></li>   
-		<li><a href="#">View and Edit HostSites</a></li>
+		<li><a href="/Admin_HostSites">View and Edit HostSites</a></li>
 		<li><a href="/Admin_Sales">View and Edit Sales</a></li>
 		</ul>
 

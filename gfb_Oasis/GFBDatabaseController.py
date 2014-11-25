@@ -266,10 +266,9 @@ class GFBDatabaseController:
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
 
 		with con:
-
 			cur = con.cursor()
 			#If the HostSites BOTH Exist (even if its the same one for both)
-			cur.execute("SELECT * FROM TBL_ORDERS WHERE creation_date> \'"+beginDate_Str+"\' AND creation_date< \'"+ endDate_str+"\';")
+			cur.execute("SELECT * FROM TBL_ORDERS WHERE creation_date> \'"+beginDate_str+"\' AND creation_date< \'"+ endDate_str+"\';")
 			records = cur.fetchall()
 			return records
 		return None
@@ -297,7 +296,7 @@ class GFBDatabaseController:
 		with con:
 			cur = con.cursor()
 			#If the HostSites BOTH Exist (even if its the same one for both)
-			cur.execute("SELECT * FROM TBL_ORDERS WHERE total_paid>0 AND creation_date> \'"+beginDate_Str+"\' AND creation_date< \'"+ endDate_str+"\';")
+			cur.execute("SELECT * FROM TBL_ORDERS WHERE total_paid>0 AND creation_date> \'"+beginDate_str+"\' AND creation_date< \'"+ endDate_str+"\';")
 
 			records = cur.fetchall()
 			return records
@@ -317,9 +316,9 @@ class GFBDatabaseController:
 
 
 
-gfb=GFBDatabaseController() ;
 
 
+#gfb=GFBDatabaseController() ;
 
 
 #Works: Adding a user with no hostsite
@@ -391,6 +390,9 @@ gfb.removeOrder(7)
 #YYYY-MM-DD
 '''
 
+#WORKING: Pull All Orders By Date Range
+'''
 rows=gfb.getAllUnpaidOrdersByDistributionDate("1900-01-01","2000-01-01")
 for row in rows:
 	print str(row)
+'''

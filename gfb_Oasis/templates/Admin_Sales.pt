@@ -73,7 +73,7 @@
     </section>
 
   </nav>
-</div>
+
   			<!-- Top bar messes with formatting, reference the dropdown here instead to fix -->
 			<ul id="drop1" class="f-dropdown small"  data-dropdown-content aria-hidden="true" tabindex="-1">
 				<form>
@@ -112,7 +112,7 @@
 			<H1> ADMIN SALES </H1>
 
 			<a href="#" class="button tiny radius" data-reveal-id="AddNew_Customer">Add New +</a>
-			<a class="close-reveal-modal" >&#215;</a>
+	
 
 
 
@@ -120,17 +120,21 @@
 		<table>
 		  <thead>
 		    <tr>
-		      <th width="100"> </th>
-		      <th width="100"> </th>
-		      <th width="200"> Date</th>
-		      <th> Host Site</th>     
-		      <th width="150">Total Sales</th>
+		      <th width="100">  </th>
+		      <th> Customer FirstName </th>
+		      <th> Customer LastName </th>		      
+		      <th width="100"> Phone # </th>
+  		      <th width="100"> Large Boxes </th>
+  		      <th width="100"> Small Boxes </th>
+  		      <th width="100"> Voucher </th>
+ 		      <th width="150"> PurchaseDate</th> 		      
+		      <th width="150"> Total</th>
+		      <th width="150"> Payment Method</th>		      
 		    </tr>
 		  </thead>
-		  
 
 <!----------------GENERATE VIA DATABASE HERE !!!! ----------->
-		<tbody id="Dynamic Target">
+			<tbody id="Dynamic Target">
 
 			
 		   <!-- all divs will append here -->
@@ -138,95 +142,28 @@
 
 			<tr>
 			<td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td>
-			<td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td>
+			<td> Mr.</td>			
+			<td> Bean</td>				
+			<td> 911</td>				
+			<td> #0</td>			
+			<td> #0</td>
 			<td> 01,01,1992</td>
 			<td>Dynamic!!!</td>
 			<td>$1,000,000</td>
+			<td>Cash</td>
 			</tr>
 
-
-		</tbody>
-
-
-
-		  
+		  </tbody>
 		</table>
+</div>
+
+
+
 
 
 
 <!-- Popups / Modals THIS IS WHERE THE LINKS OCCUR-->
 	<!-- View Modal Sample -->
-
-	<div id="view_ItemModal" class="reveal-modal" data-reveal>
-	<H1><small>HostSite:Host Site name goes here </small></H1>
-	<H1><small>Date: </small></H1>
-		<table>
-		  <thead>
-		    <tr>
-		      <th> Customer Name </th>
-		      <th width="100"> Phone # </th>
-  		      <th width="100"> Large Boxes </th>
-  		      <th width="100"> Small Boxes </th>
-  		      <th width="100"> Voucher </th>
-		      <th width="150"> Total</th>
-		      <th width="150"> Payment Method</th>		      
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-
-		      <th> Bob FreshBox</th>
-		      <th> 9-100-Mix-Alot</th>		      
-		      <th> 40</th>	
-		      <th> 1</th>	
-		      <th> K3anuR3av3s
-		      <th> $200</th>
-		      <th> Hundred Dollah Bills</th>
-		    </tr>
-
-
-		  </tbody>
-		</table>
-		<a class="close-reveal-modal">&#215;</a>
-	</div>
-
-	<!-- Edit Modal Sample -->
-	<div id="edit_ItemModal" class="reveal-modal" data-reveal>
-	<H1><small>HostSite:Host Site name goes here </small></H1>
-	<H1><small>Date: </small></H1>
-		<table>
-		  <thead>
-		    <tr>
-		     <th> </th>
-		      <th> Customer Name </th>
-		      <th width="100"> Phone # </th>
-  		      <th width="100"> Large Boxes </th>
-  		      <th width="100"> Small Boxes </th>
-  		      <th width="100"> Voucher </th>
-		      <th width="150"> Total</th>
-		      <th width="150"> Payment Method</th>		      
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <td> <a href="#" class="button tiny radius" data-reveal-id="editCustomer">Edit</a> </td>
-		      <th> Bob FreshBox</th>
-		      <th> 9-100-Mix-Alot</th>		      
-		      <th> 40</th>	
-		      <th> 1</th>	
-		      <th> K3anuR3av3s
-		      <th> $200</th>
-		      <th> Hundred Dollah Bills</th>
-		    </tr>
-
-
-		  </tbody>
-		</table>
-
-        <a href="#" class="button tiny radius" data-reveal-id="editCustomer">Add New Customer</a>
-		<a class="close-reveal-modal" >&#215;</a>
-	</div>
-
 
 
 	<div id="editCustomer" class="reveal-modal" data-reveal>
@@ -268,31 +205,34 @@
     $(document).foundation();
 
     function FetchHostSites() {
-    <!-- HashTag Ugly Ajax -->
+
        $.ajax({
         url: "http://localhost:8080/Admin_Sales",  
         type: "post",
         data: {},
-        dataType: 'text',
+        dataType: 'list',
         success: function(response, textStatus, jqXHR) {
-            alert(response);
+            
+alert(response[0]);
+ 	
+
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert(textStatus, errorThrown);
         }
 
 		});
-    }
+
+			PopulateGeneralList()
+    };
 
 
 
 
-	function PopulateGeneralList(val)
+	function PopulateGeneralList()
 	{
 		alert('Page Has Loaded...Check For Change in Lists?');
-		FetchHostSites();
-
-
+	
 
 
 		var theDiv = document.getElementById("Dynamic Target");
@@ -302,13 +242,9 @@
 		theDiv.innerHTML += '<tr><td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td><td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td><td> 01,01,1992</td><td>Dynamic!!!</td><td>$1,000,000</td></tr><br>';
 		}
 
-
-
 	}; 
 
-
-
-	window.onload = PopulateGeneralList;
+	window.onload = FetchHostSites;
   </script>
 
   </body>

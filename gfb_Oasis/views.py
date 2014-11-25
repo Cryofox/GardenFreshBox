@@ -4,6 +4,7 @@ from controller import (
 	process_login_request,
 	process_logout_request
 )
+from GFBDatabaseController import GFBDatabaseController
 
 def site_layout():
 	renderer = get_renderer("templates/core_layout.pt")
@@ -90,8 +91,22 @@ def Admin_Sales_view(request):
 
 @view_config(renderer='json',name="Admin_Sales", xhr=True )
 def ajax(request):
-    test = "hello"
-    return dict(test=test)
+	#test = "hello"
+
+	myDB = GFBDatabaseController();
+	records=myDB.getAllOrdersByDistributionDate("1900-01-30","3000-01-30")
+
+	recordList= list()
+	for x in range(len(records)):
+		valList = list()
+		for y in range(len(records[x])):
+			valList.append( str(records[x][y]));
+
+		recordList.append(valList);
+
+	print "Records="+str(records)
+    #return records
+	return dict(test=recordList)
 
 ########## INBETWEENS
 

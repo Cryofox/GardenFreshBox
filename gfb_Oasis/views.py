@@ -170,31 +170,71 @@ def Sales_ajax(request):
 
 
 @view_config(renderer="templates/Admin_HostSites.pt",name="Admin_HostSites")
-def HostSite_Sales_view(request):
+def HostSite_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_HostSites"}
 	#return 'Ok'
 
 #Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
+#Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 @view_config(renderer='json',name="Admin_HostSites", xhr=True )
 def HostSite_ajax(request):
-	#test = "hello"
 
-	myDB = GFBDatabaseController();
-	records=myDB.getAllHostSites();
+	print "Params="+request.params["field1"]
 
-	recordList= list()
-	for x in range(len(records)):
-		valList = list()
-		for y in range(len(records[x])):
-			valList.append( str(records[x][y]));
+	if (request.params["field1"]=="Fetch"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+		records=myDB.getAllHostSites()
 
-		recordList.append(valList);
+		recordList= list()
+		for x in range(len(records)):
+			valList = list()
+			for y in range(len(records[x])):
+				valList.append( str(records[x][y]));
 
-	print "Records="+str(records)
-	print "JSON DUMP="+json.dumps(recordList)
-    #return records
-	return (json.dumps(recordList))
+			recordList.append(valList);
+
+		print "Records="+str(records)
+		print "JSON DUMP="+json.dumps(recordList)
+	    #return records
+		return (json.dumps(recordList))
+
+	if (request.params["field1"]=="UpdateHostSite"):
+		myDB = GFBDatabaseController();
+		#Update Order
+		myDB.updateHostSite(
+			request.params["field2"], 
+			request.params["field3"],
+			request.params["field4"],
+			request.params["field5"],
+			request.params["field6"],
+			request.params["field7"],
+			request.params["field8"],
+			request.params["field9"]
+			);
+		return 
+
+	if (request.params["field1"]=="AddNewHostSite"):
+		print ("ADD NEW IS CALLED")
+		myDB = GFBDatabaseController();
+		#Update Order
+		myDB.addHostSite(
+			request.params["field2"], 
+			request.params["field3"],
+			request.params["field4"],
+			request.params["field5"],
+			request.params["field6"],
+			request.params["field7"],
+			request.params["field8"]
+			);
+		return 		
+	if (request.params["field1"]=="DeleteHostSite"):
+		myDB = GFBDatabaseController();
+		#Update Order
+		myDB.removeHostSite(
+			request.params["field2"]);
+		return 	
 
 
 ########## INBETWEENS

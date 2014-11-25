@@ -151,6 +151,7 @@ class GFBDatabaseController:
 	def addHostSite(self,name_str, address_str, city_str, province_str,postalCode_str, coordinatorIDs_iAr, hoursOfOperation_Dict):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+		print ("WE ARE HERE! POSTAL=")
 
 		with con:
 
@@ -184,11 +185,38 @@ class GFBDatabaseController:
 		return False
 
 	def updateHostSite(self,hostSiteID_int,name_str, address_str, city_str, province_str,postalCode_str, coordinatorIDs_iAr, hoursOfOperation_Dict):
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+		postalCode_str.replace(" ", "")
+		print ("WE ARE HERE! POSTAL="+postalCode_str)
 
-		return Boolean						
+
+		#HotFix for PostalCode 
+
+
+
+
+		with con:
+			cur = con.cursor()
+			#If the HostSites BOTH Exist (even if its the same one for both)
+			#cur.execute("DELETE FROM TBL_ORDERS WHERE id="+str(orderID_i));
+			cur.execute("UPDATE TBL_HOSTSITES SET name=\'"+name_str+"\', address=\'"+address_str+"\',city=\'"+city_str+"\',province=\'"+province_str+"\',postal_code=\'"+postalCode_str+"\' WHERE id="+str(hostSiteID_int)+";"); 
+			return True
+
+		return False
+
 	def removeHostSite(self,hostSiteID_int):
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
 
-		return Boolean
+		with con:
+			cur = con.cursor()
+			#If the HostSites BOTH Exist (even if its the same one for both)
+			cur.execute("DELETE FROM TBL_HOSTSITES WHERE id="+str(hostSiteID_int));
+			return True
+
+		return False
+
 	def getHostSiteList(self,coordinatorID_i): 
 
 		return ArrDict
@@ -214,7 +242,7 @@ class GFBDatabaseController:
 	def getAllHostSites(self):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
-		with con:
+		with con: 
 
 			cur = con.cursor()
 

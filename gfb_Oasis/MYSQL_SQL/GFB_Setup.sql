@@ -12,7 +12,7 @@ name varchar(255) unique,
 address varchar(255),
 city varchar(255),
 province varchar(255),
-postal_code varchar(6) ,
+postal_code varchar(255) ,
 email varchar(255),
 hoursOfOperation int
 );

@@ -1,0 +1,21 @@
+use gardenfreshbox;
+
+INSERT INTO TBL_USERS VALUES (null,'iheartpickles@gmail.com','password','Bob','Pickels','905-Mix-Alot', 1);
+INSERT INTO TBL_USERS VALUES (null,'pickles4life@gmail.com','password','Dill','Pickels','905-Mix-Alot', 2);
+INSERT INTO TBL_USERS VALUES (null,'melonsarebetter@gmail.com','password','Watery','Fruitbasket','987-654-3210', 3);
+INSERT INTO TBL_USERS VALUES (null,'pondscum@hotmail.com','password','Abby','Gail','905-nut-case', 2);
+INSERT INTO TBL_USERS VALUES (null,'theboss@avalanche.com','password','Barret','Wallace','753-159-8520', 1);
+INSERT INTO TBL_USERS VALUES (null,'wvidic@abstergo.com','password','Warren','Vidic','643-456-8745', 3);
+INSERT INTO TBL_USERS VALUES (null,'horadriclore@tristram.com','password','Deckard','Cain','666-end-evil', 1);
+INSERT INTO TBL_USERS VALUES (null,'wheelsanddeals@pharros.com','password','Gavlan','Gyrm','905-IGA-VLAN', 2);
+INSERT INTO TBL_USERS VALUES (null,'stealth@yahoo.com','password','Sam','Fisher','546-223-1564', 3);
+INSERT INTO TBL_USERS VALUES (null,'notreal@yahoo.com','password','Dana','Scully','DEN-YIT-ALL', 1);
+INSERT INTO TBL_USERS VALUES (null,'bossman@stahlarms.com','password','Jorhan','Stahl','999-756-1231', 2);
+INSERT INTO TBL_USERS VALUES (null,'mkincaid@mmunitions.com','password','Marcus','Kincaid','GUN-SAR-EUS', 3);
+INSERT INTO TBL_USERS VALUES (null,'thebeast@nsa.com','password','John','White','131-465-8521', 1);
+INSERT INTO TBL_USERS VALUES (null,'neverenoughscience@aperture.com','password','Cave','Johnson','IDO-SCI-ENCE', 2);
+INSERT INTO TBL_USERS VALUES (null,'Green@red.com','password','Guy','Gardner','660-000-2814', 3);
+INSERT INTO TBL_USERS VALUES (null,'phoenix@iscream.ca','password','Jain','Zar','774-437-410', 1);
+INSERT INTO TBL_USERS VALUES (null,'hungryhippo@sympatico.com','notareference','Aurelian','Pompous','123-322-3213', 2);
+INSERT INTO TBL_USERS VALUES (null,'thattickles@gjail.com','password','Crazy','Eyes','321-456-8536', 3);
+INSERT INTO TBL_USERS VALUES (null,'spectrum@avengers.com','password','Monique','Rambeau','591-564-7894', 1);

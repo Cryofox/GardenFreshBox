@@ -209,8 +209,8 @@
 			<a class="close-reveal-modal" id="CloseContextModal">&#215;</a>
 
 			<a href="#" OnClick="Click('CloseContextModal'); UpdateRecord();" class="button tiny radius" >Submit</a> <!-- Perform OnClick for Close -->
+			<a href="#" OnClick="Click('CloseContextModal'); DeleteRecord(); " class="button tiny radius">Delete</a>  <!-- Perform OnClick for Close -->
 			<a href="#" OnClick="Click('CloseContextModal'); " class="button tiny radius">Cancel</a>  <!-- Perform OnClick for Close -->
-
 			</div>
 
 		  </tbody>
@@ -399,7 +399,38 @@
 		
     };
 
+     function DeleteRecord() {
 
+		alert("function called");	
+		alert(document.getElementById('hidden_IDZZ').value);
+       $.ajax({
+        url: "http://localhost:8080/Admin_Sales",  
+        type: "post",
+        data: {
+        field1: "DeleteOrder", 
+        field2:  document.getElementById('hidden_ID').value,  
+        },
+        dataType: 'json',
+        success: function(response) {
+
+		var myObject = JSON.parse(response);      
+
+		alert("Your Order has been updated!");	
+
+			
+	
+ 			
+
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(textStatus, errorThrown);
+    		
+        }
+
+		});
+
+		
+    };
 
     function FetchHostSites() {
 

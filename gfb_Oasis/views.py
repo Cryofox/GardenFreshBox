@@ -155,7 +155,12 @@ def Sales_ajax(request):
 			request.params["field13"],
 			"Dynamic!");
 		return 		
-
+	if (request.params["field1"]=="DeleteOrder"):
+		myDB = GFBDatabaseController();
+		#Update Order
+		myDB.removeOrder(
+			request.params["field2"]);
+		return 	
 #Used to Update DB
 
 

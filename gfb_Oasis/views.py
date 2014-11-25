@@ -105,6 +105,7 @@ def ajax(request):
 		recordList.append(valList);
 
 	print "Records="+str(records)
+	print "JSON DUMP="+json.dumps(recordList)
     #return records
 	return (json.dumps(recordList))
 

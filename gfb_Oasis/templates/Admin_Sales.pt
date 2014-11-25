@@ -108,7 +108,7 @@
 			
 			</ul>
 
-
+</div>
 			<H1> ADMIN SALES </H1>
 
 			<a href="#" class="button tiny radius" data-reveal-id="AddNew_Customer">Add New +</a>
@@ -124,12 +124,13 @@
 		      <th> Customer FirstName </th>
 		      <th> Customer LastName </th>		      
 		      <th width="100"> Phone # </th>
+  		      <th width="100"> Email </th>
   		      <th width="100"> Large Boxes </th>
   		      <th width="100"> Small Boxes </th>
-  		      <th width="100"> Voucher </th>
- 		      <th width="150"> PurchaseDate</th> 		      
+ 		      <th width="150"> PurchaseDate</th>
+ 		      <th width="100"> Voucher </th> 		      
 		      <th width="150"> Total</th>
-		      <th width="150"> Payment Method</th>		      
+		      <th width="150"> Donation</th>	
 		    </tr>
 		  </thead>
 
@@ -144,18 +145,18 @@
 			<td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td>
 			<td> Mr.</td>			
 			<td> Bean</td>				
-			<td> 911</td>				
+			<td> 911</td>	
+			<td> @trez</td>			
 			<td> #0</td>			
 			<td> #0</td>
 			<td> 01,01,1992</td>
 			<td>Dynamic!!!</td>
 			<td>$1,000,000</td>
-			<td>Cash</td>
+			<td>$-10</td>
 			</tr>
 
 		  </tbody>
 		</table>
-</div>
 
 
 
@@ -212,8 +213,12 @@
         data: {},
         dataType: 'json',
         success: function(response) {
-            
-		alert(response);
+
+		var myObject = JSON.parse(response);        
+		alert(myObject[0]);	
+
+		PopulateGeneralList(myObject);	
+	
  			
 
         },
@@ -223,23 +228,27 @@
 
 		});
 
-			PopulateGeneralList()
+		
     };
 
 
 
 
-	function PopulateGeneralList()
+	function PopulateGeneralList(records)
 	{
-		alert('Page Has Loaded...Check For Change in Lists?');
+		alert('Page Has Loaded...Check For Change in Lists? Response='+records.length);
 	
 
 
 		var theDiv = document.getElementById("Dynamic Target");
-     	for( var i= 0;i < 10; i++)
+     	for( var i= 0;i < records.length; i++)
 		{
 		<!--theDiv.innerHTML += "Hello World <br>";-->
-		theDiv.innerHTML += '<tr><td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td><td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td><td> 01,01,1992</td><td>Dynamic!!!</td><td>$1,000,000</td></tr><br>';
+		<!--theDiv.innerHTML += '<tr><td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td><td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td><td> 01,01,1992</td><td>Dynamic!!!</td><td>$1,000,000</td></tr><br>';-->
+
+
+		theDiv.innerHTML +='<tr><td><a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a></td><td>'+records[i][3]+'</td><td>'+records[i][4]+'</td><td>'+records[i][6]+'</td><td>'+records[i][5]+'</td><td>'+records[i][9]+'</td><td>'+records[i][8]+'</td><td>'+records[i][2]+'</td><td>Dynamic!!!</td><td>'+records[i][12]+'</td><td>'+records[i][10]+'</td></tr>';
+
 		}
 
 	}; 

@@ -5,7 +5,7 @@ from controller import (
 	process_logout_request
 )
 from GFBDatabaseController import GFBDatabaseController
-
+import json
 def site_layout():
 	renderer = get_renderer("templates/core_layout.pt")
 	return renderer.implementation().macros['layout']
@@ -106,7 +106,7 @@ def ajax(request):
 
 	print "Records="+str(records)
     #return records
-	return dict(test=recordList)
+	return (json.dumps(recordList))
 
 ########## INBETWEENS
 

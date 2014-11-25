@@ -210,11 +210,11 @@
         url: "http://localhost:8080/Admin_Sales",  
         type: "post",
         data: {},
-        dataType: 'list',
-        success: function(response, textStatus, jqXHR) {
+        dataType: 'json',
+        success: function(response) {
             
-alert(response[0]);
- 	
+		alert(response);
+ 			
 
         },
         error: function(jqXHR, textStatus, errorThrown){

@@ -112,11 +112,58 @@ def Sales_ajax(request):
 		print "JSON DUMP="+json.dumps(recordList)
 	    #return records
 		return (json.dumps(recordList))
+
 	if (request.params["field1"]=="UpdateOrder"):
 		myDB = GFBDatabaseController();
 		#Update Order
+		myDB.updateOrder(
+			request.params["field2"], 
+			request.params["field9"],
+			request.params["field9"],
+			request.params["field3"],
+			request.params["field4"],
+			request.params["field6"],
+			request.params["field5"],
+			0,
+			request.params["field8"],
+			request.params["field7"],
+			request.params["field12"],
+			request.params["field11"],
+			request.params["field13"],
+			request.params["field13"],
+			"Dynamic!");
 
-
+'''
+		orderID_i, 
+		dateCreated_str, 
+		dateToDistribute_str, 
+		firstName_str, 
+		lastName_str, 
+		email_str, 
+		phoneNumber_str, 
+		shouldSendNotifications_bool, 
+		smallBoxQuantity_i,
+		largeBoxQuantity_i, 
+		donations_decimal, 
+		totalPaid_decimal, 
+		hostSitePickupID_i, 
+		hostSiteOrderID_i, 
+		vouchers_iArr):
+'''
+'''
+        field2:  document.getElementById('hidden_ID').value,  
+        field3:  document.getElementById('input_FName').value,    
+		field4:  document.getElementById('input_LName').value,
+		field5:  document.getElementById('input_PNum').value,
+		field6:  document.getElementById('input_Email').value,
+		field7:  document.getElementById('input_Large Boxes').value,
+		field8:  document.getElementById('input_Small Boxes').value,
+		field9:  document.getElementById('input_PurchaseDate').value,
+		field10:  document.getElementById('input_Voucher').value,
+		field11: document.getElementById('input_Total Paid').value,
+		field12: document.getElementById('input_Donations').value,
+        field13: document.getElementById('input_HostSite').value 
+'''
 
 #Used to Update DB
 

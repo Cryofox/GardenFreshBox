@@ -142,7 +142,7 @@
 		    <h1>This is where the Dynamic Stuff Goes</h1>
 
 			<tr>
-			<td> <a onclick='SetInputText( "Mr.", "Bean", "911","@trez","#0","#0","01,01,1992","Dynamic!!!","$1,000,000","$-10","1"  )' href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a> </td>
+			<td> <a onclick='SetInputText("0", "Mr.", "Bean", "911","@trez","#0","#0","01,01,1992","Dynamic!!!","$1,000,000","$-10","1"  )' href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a> </td>
 			<td> Mr.</td>			
 			<td> Bean</td>				
 			<td> 911</td>	
@@ -160,6 +160,8 @@
 			<div id="edit_RecordModal" class="reveal-modal" data-reveal>
 				  <h2>Edit Customer Order</h2>
 			<p>Enter The Values you'd like to change and press submit to confirm.<br> Cancel Otherwise</p>
+
+			<div id="hidden_ID" value=""> </div>
 			<div class="row">
 					<div class="small-6 columns">
 						<!-- First Column -->
@@ -273,17 +275,18 @@
         data: {
         field1: "UpdateOrder", 
 
-        field2:  document.getElementById('input_FName').value,    
-		field3:  document.getElementById('input_LName').value,
-		field4:  document.getElementById('input_PNum').value,
-		field5:  document.getElementById('input_Email').value,
-		field6:  document.getElementById('input_Large Boxes').value,
-		field7:  document.getElementById('input_Small Boxes').value,
-		field8:  document.getElementById('input_PurchaseDate').value,
-		field9:  document.getElementById('input_Voucher').value,
-		field10: document.getElementById('input_Total Paid').value,
-		field11: document.getElementById('input_Donations').value,
-        field12: document.getElementById('input_HostSite').value 
+        field2:  document.getElementById('hidden_ID').value,  
+        field3:  document.getElementById('input_FName').value,    
+		field4:  document.getElementById('input_LName').value,
+		field5:  document.getElementById('input_PNum').value,
+		field6:  document.getElementById('input_Email').value,
+		field7:  document.getElementById('input_Large Boxes').value,
+		field8:  document.getElementById('input_Small Boxes').value,
+		field9:  document.getElementById('input_PurchaseDate').value,
+		field10:  document.getElementById('input_Voucher').value,
+		field11: document.getElementById('input_Total Paid').value,
+		field12: document.getElementById('input_Donations').value,
+        field13: document.getElementById('input_HostSite').value 
 
         },
         dataType: 'json',
@@ -343,9 +346,9 @@
 
 
 
-    function SetInputText(fN, lN, pN, em, lB, sB, pD, V, t, D, hs) 
+    function SetInputText(id,fN, lN, pN, em, lB, sB, pD, V, t, D, hs) 
     {
-
+	document.getElementById('hidden_ID').value=id;
 	document.getElementById('input_FName').value=fN;
 	document.getElementById('input_LName').value=lN;
 	document.getElementById('input_PNum').value=pN;

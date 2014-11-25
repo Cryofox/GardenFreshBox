@@ -267,6 +267,20 @@
   <script>
     $(document).foundation();
 
+    function FetchHostSites() {
+       $.ajax({
+        type: "POST",
+        url: "details",
+        dataType: "json",
+        data: {
+            'ajax_id': iID,
+            'ajax_name': sName,
+        },
+        success: function(data) {
+                iReturned_value = data.ID;
+            }, 
+    	})
+    }
 
 
 	function PopulateGeneralList(val)

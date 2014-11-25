@@ -111,8 +111,8 @@
 
 			<H1> ADMIN SALES </H1>
 
-			<a href="#" class="button tiny radius">Add New +</a>
-
+			<a href="#" class="button tiny radius" data-reveal-id="AddNew_Customer">Add New +</a>
+			<a class="close-reveal-modal" >&#215;</a>
 
 
 
@@ -235,6 +235,13 @@
 	  <a class="close-reveal-modal">&#215;</a>
 	</div>
 
+
+
+	<div id="AddNew_Customer" class="reveal-modal" data-reveal>
+	  <h2>PlaceHolder for BobFreshbox Customer</h2>
+	<p> I didn't feel like making a form so bleh, no point untill a db is made </p>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
 	<!--------------------->
 
 
@@ -266,13 +273,15 @@
 	{
 		alert('Page Has Loaded...Check For Change in Lists?');
 
+
+
+
+
 		var theDiv = document.getElementById("Dynamic Target");
      	for( var i= 0;i < 10; i++)
 		{
 		<!--theDiv.innerHTML += "Hello World <br>";-->
 		theDiv.innerHTML += '<tr><td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td><td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td><td> 01,01,1992</td><td>Dynamic!!!</td><td>$1,000,000</td></tr><br>';
-
-
 		}
 
 

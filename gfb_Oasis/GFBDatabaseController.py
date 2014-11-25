@@ -239,15 +239,15 @@ class GFBDatabaseController:
 
 			cur = con.cursor()
 			#If the HostSites BOTH Exist (even if its the same one for both)
-			if( self.getHostSite(hostSitePickupID_i) is not None and self.getHostSite(hostSiteOrderID_i)):
+			if( self.getHostSite(hostSitePickupID_i) is not None):
 				##Check if HostSites in our List exist
 
 				## Add Order to Table, Ben I hate you for making me put 17 parameters in a function =_=
 				#REciept HardCoded to False
-				if(donationsReciept):
-					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 1 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',"+str(donations_decimal)+",\' 0 \',\'"+str(totalPaid_decimal)+"\',"+str(hostSitePickupID_i)+","+str(hostSiteOrderID_i)+")")
+				if(donationReceipt_bool):
+					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 1 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',"+str(donations_decimal)+",\' 0 \',\'"+str(totalPaid_decimal)+"\',"+str(hostSitePickupID_i)+","+str(hostSiteOrderID_i)+");")
 				else:
-					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 0 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',"+str(donations_decimal)+",\' 0 \',\'"+str(totalPaid_decimal)+"\',"+str(hostSitePickupID_i)+","+str(hostSiteOrderID_i)+")")
+					cur.execute("INSERT INTO TBL_ORDERS VALUES (null,\'"+dateCreated_str+"\',\'"+dateToDistribute_str+"\',\'"+firstName_str+"\',\'"+lastName_str+"\',\'"+email_str+"\',\'"+ phoneNumber_str+"\',\' 0 \',\'"+str(largeBoxQuantity_i)+"\',\'"+str(smallBoxQuantity_i)+"\',"+str(donations_decimal)+",\' 0 \',\'"+str(totalPaid_decimal)+"\',"+str(hostSitePickupID_i)+","+str(hostSiteOrderID_i)+");")
 
 				print "ORDER ADDED:Success!"
 				return True

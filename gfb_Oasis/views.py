@@ -134,6 +134,28 @@ def Sales_ajax(request):
 			"Dynamic!");
 		return 
 
+	if (request.params["field1"]=="AddNewOrder"):
+		myDB = GFBDatabaseController();
+		#Update Order
+		myDB.createNewOrder(
+			request.params["field9"],
+			request.params["field9"],
+			request.params["field3"],
+			request.params["field4"],
+			request.params["field6"],
+			request.params["field5"],
+			False,
+			request.params["field8"],
+			request.params["field7"],
+			request.params["field12"],
+			0,
+			None,
+			request.params["field11"],
+			request.params["field13"],
+			request.params["field13"],
+			"Dynamic!");
+		return 		
+
 #Used to Update DB
 
 

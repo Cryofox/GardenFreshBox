@@ -111,7 +111,7 @@
 </div>
 			<H1> ADMIN SALES </H1>
 
-			<a href="#" class="button tiny radius" data-reveal-id="AddNew_Customer">Add New +</a>
+			<a href="#" class="button tiny radius" data-reveal-id="AddNew_RecordModal">Add New +</a>
 	
 
 
@@ -218,26 +218,68 @@
 
 
 
+		<div id="AddNew_RecordModal" class="reveal-modal" data-reveal>
+				  <h2>Add new Customer Order</h2>
+			<p>Enter The Values you'd like to change and press submit to confirm.<br> Cancel Otherwise</p>
 
+			<div id="hidden_IDZZ" value=""> </div>
+			<div class="row">
+					<div class="small-6 columns">
+						<!-- First Column -->
+						<label>First Name:
+							<input id="input_FNameZZ" type="text" placeholder="large-12.columns" />
+						</label>
+						<label>Last Name:
+							<input id="input_LNameZZ" type="text" placeholder="large-12.columns" />
+						</label>
+						<label>Phone Number:
+							<input id="input_PNumZZ"  type="text" placeholder="large-12.columns" />
+						</label>
+						<label>Email:
+							<input id="input_EmailZZ" type="text" placeholder="large-12.columns" />
+						</label>
+						<label>Large Boxes:
+							<input id="input_Large BoxesZZ" type="text" placeholder="large-12.columns" />
+						</label>	
+
+						<label>HostSite:
+							<input id="input_HostSiteZZ" type="text" placeholder="large-12.columns" />
+						</label>
+					</div>
+					<div class="small-6 columns">
+						<!-- Second Column -->
+		
+						<label>PurchaseDate:
+							<input id="input_PurchaseDateZZ" type="text" placeholder="large-12.columns" />
+						</label>
+						<label>Voucher:
+							<input id="input_VoucherZZ" type="text" placeholder="large-12.columns" />
+						</label>
+						<label>Total Paid:
+							<input id="input_Total PaidZZ" type="text" placeholder="large-12.columns" />
+						</label>
+						<label>Donations:
+							<input id="input_DonationsZZ" type="text" placeholder="large-12.columns" />
+						</label>
+
+						<label>Small Boxes:
+							<input id="input_Small BoxesZZ" type="text" placeholder="large-12.columns" />
+						</label>	
+					</div>
+			</div>
+			<a class="close-reveal-modal" id="CloseContextModal">&#215;</a>
+
+			<a href="#" OnClick="Click('CloseContextModal'); AddNewRecord();" class="button tiny radius" >Submit</a> <!-- Perform OnClick for Close -->
+			<a href="#" OnClick="Click('CloseContextModal'); " class="button tiny radius">Cancel</a>  <!-- Perform OnClick for Close -->
+
+			</div>
 
 
 <!-- Popups / Modals THIS IS WHERE THE LINKS OCCUR-->
 	<!-- View Modal Sample -->
 
 
-	<div id="editCustomer" class="reveal-modal" data-reveal>
-	  <h2>PlaceHolder for BobFreshbox Customer</h2>
-	<p> I didn't feel like making a form so bleh, no point untill a db is made </p>
-	  <a class="close-reveal-modal">&#215;</a>
-	</div>
 
-
-
-	<div id="AddNew_Customer" class="reveal-modal" data-reveal>
-	  <h2>PlaceHolder for BobFreshbox Customer</h2>
-	<p> I didn't feel like making a form so bleh, no point untill a db is made </p>
-	  <a class="close-reveal-modal">&#215;</a>
-	</div>
 	<!--------------------->
 
 
@@ -304,6 +346,52 @@
         error: function(jqXHR, textStatus, errorThrown){
             <!--alert(textStatus, errorThrown);-->
     		alert("ERROR: There was a problem updating your order.");	
+        }
+
+		});
+
+		
+    };
+
+
+     function AddNewRecord() {
+
+		alert("function called");	
+		alert(document.getElementById('hidden_IDZZ').value);
+       $.ajax({
+        url: "http://localhost:8080/Admin_Sales",  
+        type: "post",
+        data: {
+        field1: "AddNewOrder", 
+        field2:  document.getElementById('hidden_IDZZ').value,  
+        field3:  document.getElementById('input_FNameZZ').value,    
+		field4:  document.getElementById('input_LNameZZ').value,
+		field5:  document.getElementById('input_PNumZZ').value,
+		field6:  document.getElementById('input_EmailZZ').value,
+		field7:  document.getElementById('input_Large BoxesZZ').value,
+		field8:  document.getElementById('input_Small BoxesZZ').value,
+		field9:  document.getElementById('input_PurchaseDateZZ').value,
+		field10:  document.getElementById('input_VoucherZZ').value,
+		field11: document.getElementById('input_Total PaidZZ').value,
+		field12: document.getElementById('input_DonationsZZ').value,
+        field13: document.getElementById('input_HostSiteZZ').value 
+
+        },
+        dataType: 'json',
+        success: function(response) {
+
+		var myObject = JSON.parse(response);      
+
+		alert("Your Order has been updated!");	
+
+			
+	
+ 			
+
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(textStatus, errorThrown);
+    		
         }
 
 		});

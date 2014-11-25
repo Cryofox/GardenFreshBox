@@ -80,3 +80,10 @@ def PickupLocations_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "PickupLocations"}
 	#return 'Ok'
+
+
+@view_config(renderer="templates/Admin_Sales.pt",name="Admin_Sales")
+def Admin_Sales_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_Sales"}
+	#return 'Ok'

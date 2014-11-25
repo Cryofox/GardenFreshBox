@@ -383,8 +383,8 @@
 		<!--theDiv.innerHTML += "Hello World <br>";-->
 		<!--theDiv.innerHTML += '<tr><td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td><td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td><td> 01,01,1992</td><td>Dynamic!!!</td><td>$1,000,000</td></tr><br>';-->
 
-
-		theDiv.innerHTML +='<tr><td><a Onclick= "SetInputText(&#34 0 &#34,  &#34 Mr. &#34 ,  &#34 Bean &#34 ,  &#34 911 &#34 , &#34 @trez &#34 , &#34 #0 &#34 , &#34 #0 &#34 , &#34 01,01,1992 &#34 , &#34 Dynamic!!! &#34 , &#34 $1,000,000 &#34 , &#34 $-10 &#34 , &#34 1 &#34   )" href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a></td><td>'+records[i][3]+'</td><td>'+records[i][4]+'</td><td>'+records[i][6]+'</td><td>'+records[i][5]+'</td><td>'+records[i][9]+'</td><td>'+records[i][8]+'</td><td>'+records[i][2]+'</td><td>Dynamic!!!</td><td>'+records[i][12]+'</td><td>'+records[i][10]+'</td><td>'+records[i][14]+'</td></tr>';
+<!-- #34="  -->
+		theDiv.innerHTML +='<tr><td><a Onclick= "SetInputText(&#34 0 &#34,  &#34' +records[i][4]+ '&#34 ,  &#34 Bean &#34 ,  &#34 911 &#34 , &#34 @trez &#34 , &#34 #0 &#34 , &#34 #0 &#34 , &#34 01,01,1992 &#34 , &#34 Dynamic!!! &#34 , &#34 $1,000,000 &#34 , &#34 $-10 &#34 , &#34 1 &#34   )" href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a></td><td>'+records[i][3]+'</td><td>'+records[i][4]+'</td><td>'+records[i][6]+'</td><td>'+records[i][5]+'</td><td>'+records[i][9]+'</td><td>'+records[i][8]+'</td><td>'+records[i][2]+'</td><td>Dynamic!!!</td><td>'+records[i][12]+'</td><td>'+records[i][10]+'</td><td>'+records[i][14]+'</td></tr>';
 
 		}
 

@@ -14,22 +14,6 @@
 
 <script>
 
-	function PopulateGeneralList(val)
-	{
-		alert('Page Has Loaded...Check For Change in Lists?');
-
-		var theDiv = document.getElementById("Dynamic Target");
-     	for( var i= 0;i < 10; i++)
-		{
-		theDiv.innerHTML += " Hello World <br> ";
-
-		}
-
-
-	} 
-
-	window.onload = PopulateGeneralList;
-
 </script>
 
   </head>
@@ -129,11 +113,8 @@
 
 			<a href="#" class="button tiny radius">Add New +</a>
 
-<!----------------GENERATE VIA DATABASE HERE !!!! ----------->
-		<div id="Dynamic Target">
-		   <!-- all divs will append here -->
-		   <h1>This is where the Dynamic Stuff Goes</h1>
-		</div>
+
+
 
 
 		<table>
@@ -146,39 +127,36 @@
 		      <th width="150">Total Sales</th>
 		    </tr>
 		  </thead>
-		  <tbody>
-		    <tr>
-		      <td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td>
-		      <td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td>
-		      <td> 01,01,1992</td>
-		      <td>Host Site name goes here</td>
-		      <td>$1,000,000</td>
-		    </tr>
+		  
 
-		    <tr>
-		      <td> <a href="#" class="button tiny radius">Edit</a> </td>
-		      <td> <a href="#" class="button tiny radius">View</a> </td>
-		      <td> 01,01,1992</td>
-		      <td>Host Site name goes here</td>
-		      <td>$1,000,000</td>
-		    </tr> 
+<!----------------GENERATE VIA DATABASE HERE !!!! ----------->
+		<tbody id="Dynamic Target">
 
-		    <tr>
-		      <td> <a href="#" class="button tiny radius">Edit</a> </td>
-		      <td> <a href="#" class="button tiny radius">View</a> </td>
-		      <td> 01,01,1992</td>
-		      <td>Host Site name goes here</td>
-		      <td>$1,000,000</td>
-		    </tr> 
+			
+		   <!-- all divs will append here -->
+		    <h1>This is where the Dynamic Stuff Goes</h1>
+
+			<tr>
+			<td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td>
+			<td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td>
+			<td> 01,01,1992</td>
+			<td>Dynamic!!!</td>
+			<td>$1,000,000</td>
+			</tr>
 
 
-		  </tbody>
+		</tbody>
+
+
+
+		  
 		</table>
 
 
 
-<!-- Popups / Modals -->
+<!-- Popups / Modals THIS IS WHERE THE LINKS OCCUR-->
 	<!-- View Modal Sample -->
+
 	<div id="view_ItemModal" class="reveal-modal" data-reveal>
 	<H1><small>HostSite:Host Site name goes here </small></H1>
 	<H1><small>Date: </small></H1>
@@ -211,7 +189,7 @@
 		</table>
 		<a class="close-reveal-modal">&#215;</a>
 	</div>
-	<!--------------------->
+
 	<!-- Edit Modal Sample -->
 	<div id="edit_ItemModal" class="reveal-modal" data-reveal>
 	<H1><small>HostSite:Host Site name goes here </small></H1>
@@ -281,6 +259,29 @@
   <!-- Other JS plugins can be included here -->
   <script>
     $(document).foundation();
+
+
+
+	function PopulateGeneralList(val)
+	{
+		alert('Page Has Loaded...Check For Change in Lists?');
+
+		var theDiv = document.getElementById("Dynamic Target");
+     	for( var i= 0;i < 10; i++)
+		{
+		<!--theDiv.innerHTML += "Hello World <br>";-->
+		theDiv.innerHTML += '<tr><td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td><td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td><td> 01,01,1992</td><td>Dynamic!!!</td><td>$1,000,000</td></tr><br>';
+
+
+		}
+
+
+
+	}; 
+
+
+
+	window.onload = PopulateGeneralList;
   </script>
 
   </body>

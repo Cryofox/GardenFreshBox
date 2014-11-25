@@ -6,21 +6,38 @@
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="/static/css/foundation.css" />
     <script src="/static/js/vendor/modernizr.js"></script>
+
+
+
+
+
+
+<script>
+
+	function PopulateGeneralList(val)
+	{
+		alert('Page Has Loaded...Check For Change in Lists?');
+
+		var theDiv = document.getElementById("Dynamic Target");
+     	for( var i= 0;i < 10; i++)
+		{
+		theDiv.innerHTML += " Hello World <br> ";
+
+		}
+
+
+	} 
+
+	window.onload = PopulateGeneralList;
+
+</script>
+
   </head>
 
 
 
   <body>
-<script>
 
-	function PopulateGeneralList(val)
-	{
-
-
-	} 
-
-
-</script>
 
 
 
@@ -113,11 +130,9 @@
 			<a href="#" class="button tiny radius">Add New +</a>
 
 <!----------------GENERATE VIA DATABASE HERE !!!! ----------->
-		<script>
-			$('.target').add('<div>Insert Div Content</div>');
-		</script>
-		<div id="target">
+		<div id="Dynamic Target">
 		   <!-- all divs will append here -->
+		   <h1>This is where the Dynamic Stuff Goes</h1>
 		</div>
 
 

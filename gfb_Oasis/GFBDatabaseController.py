@@ -263,26 +263,7 @@ class GFBDatabaseController:
 			cur = con.cursor()
 			#If the HostSites BOTH Exist (even if its the same one for both)
 			#cur.execute("DELETE FROM TBL_ORDERS WHERE id="+str(orderID_i));
-			cur.execute
-			("UPDATE TBL_ORDERS SET distribution_date="+dateToDistribute_str+", creation_date="+dateCreated_str+",customer_first_name="+firstName_str+", customer_last_name="+lastName_str+",customer_email="+email_str+",customer_phone="+phoneNumber_str+",email_notifications=0,large_quantity="+str(largeBoxQuantity_i)+",small_quantity="+str(smallBoxQuantity_i)+",donation="+str( donations_decimal)+",donationsReciept=0,total_paid="+str(totalPaid_decimal)+",hostsitepickup="+hostSitePickupID_i+",hostsitecreated="+hostSitePickupID_i+",WHERE id = orderID_i");
-		
-			'''
-					orderID_i, 
-					dateCreated_str, 
-					dateToDistribute_str, 
-					firstName_str, 
-					lastName_str, 
-					email_str, 
-					phoneNumber_str, 
-					shouldSendNotifications_bool, 
-					smallBoxQuantity_i,
-					largeBoxQuantity_i, 
-					donations_decimal, 
-					totalPaid_decimal, 
-					hostSitePickupID_i, 
-					hostSiteOrderID_i, 
-					vouchers_iArr):
-			'''			
+			cur.execute("UPDATE TBL_ORDERS SET distribution_date=\'"+dateToDistribute_str+"\', creation_date=\'"+dateCreated_str+"\',customer_first_name=\'"+firstName_str+"\', customer_last_name=\'"+lastName_str+"\',customer_email=\'"+email_str+"\',customer_phone=\'"+phoneNumber_str+"\',email_notifications=0,large_quantity=\'"+str(largeBoxQuantity_i)+"\',small_quantity=\'"+str(smallBoxQuantity_i)+"\',donation=\'"+str( donations_decimal)+"\',donationReceipt=0,total_paid=\'"+str(totalPaid_decimal)+"\',hostsitepickup_idFK=\'"+hostSitePickupID_i+"\',hostsitecreated_idFK=\'"+hostSitePickupID_i+"\' WHERE id = "+orderID_i+";");		
 			return True
 
 		return False

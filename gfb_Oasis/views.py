@@ -132,38 +132,7 @@ def Sales_ajax(request):
 			request.params["field13"],
 			request.params["field13"],
 			"Dynamic!");
-
-'''
-		orderID_i, 
-		dateCreated_str, 
-		dateToDistribute_str, 
-		firstName_str, 
-		lastName_str, 
-		email_str, 
-		phoneNumber_str, 
-		shouldSendNotifications_bool, 
-		smallBoxQuantity_i,
-		largeBoxQuantity_i, 
-		donations_decimal, 
-		totalPaid_decimal, 
-		hostSitePickupID_i, 
-		hostSiteOrderID_i, 
-		vouchers_iArr):
-'''
-'''
-        field2:  document.getElementById('hidden_ID').value,  
-        field3:  document.getElementById('input_FName').value,    
-		field4:  document.getElementById('input_LName').value,
-		field5:  document.getElementById('input_PNum').value,
-		field6:  document.getElementById('input_Email').value,
-		field7:  document.getElementById('input_Large Boxes').value,
-		field8:  document.getElementById('input_Small Boxes').value,
-		field9:  document.getElementById('input_PurchaseDate').value,
-		field10:  document.getElementById('input_Voucher').value,
-		field11: document.getElementById('input_Total Paid').value,
-		field12: document.getElementById('input_Donations').value,
-        field13: document.getElementById('input_HostSite').value 
-'''
+		return 
 
 #Used to Update DB
 

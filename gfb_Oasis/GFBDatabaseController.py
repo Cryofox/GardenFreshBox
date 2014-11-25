@@ -258,7 +258,7 @@ class GFBDatabaseController:
 	def updateOrder(self,orderID_i, dateCreated_str, dateToDistribute_str, firstName_str, lastName_str, email_str, phoneNumber_str, shouldSendNotifications_bool, smallBoxQuantity_i,largeBoxQuantity_i, donations_decimal, totalPaid_decimal, hostSitePickupID_i, hostSiteOrderID_i, vouchers_iArr):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
-
+		print ("WE ARE HERE!")
 		with con:
 			cur = con.cursor()
 			#If the HostSites BOTH Exist (even if its the same one for both)

@@ -6,12 +6,17 @@ from controller import (
 )
 from GFBDatabaseController import GFBDatabaseController
 import json
+
+
+'''
+	returns the unchanging layout of the site that will be on every page.
+'''
 def site_layout():
 	renderer = get_renderer("templates/core_layout.pt")
 	return renderer.implementation().macros['layout']
 
 '''
-get the specific header for the person logged in
+	get the specific header for the person logged in
 '''
 def user_header(request):
 	if not 'username' in request.session:
@@ -22,7 +27,9 @@ def user_header(request):
 			return f.read()
 
 
-
+'''
+	get the webpage for a user who is logging into the system
+'''
 @view_config(renderer="templates/login.pt", name="login")
 def login_view(request):
 	if 'username' in request.params: #there's gotta be a better way to do page permissions
@@ -38,12 +45,17 @@ def login_view(request):
 	return ret
 
 
-
+'''
+	a template for Foundation, the webpage builder we are using 
+'''
 			#    V Template Location                                V Argument 
 @view_config(renderer="templates/FoundationTemplate.pt",name="FoundationTemplate")
 def Foundation_view(request):
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "FoundationTemplate"}
 
+'''
+	get the webpage for signing up to the site
+'''
 @view_config(renderer="templates/signup.pt", name="signup")
 def signup_view(request):
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Sign Up"}
@@ -51,7 +63,9 @@ def signup_view(request):
 
 
 
-
+'''
+	get the webpage when logging out of the system.
+'''
 @view_config(name="logout")
 def logout_view(request):
 	return process_logout_request(request)
@@ -59,7 +73,12 @@ def logout_view(request):
 
 
 
-############## OASIS_GFB PAGES
+#############
+# OASIS_GFB PAGES
+#############
+'''
+	get the specific header for the person logged in
+'''
 @view_config(renderer="templates/GardenFreshBox_Home.pt")
 def index_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -73,8 +92,9 @@ def index_ajax(request):
 
 		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))
 
-
-
+'''
+	get the webpage where the user can order product
+'''
 @view_config(renderer="templates/BuyGoodies.pt",name="BuyGoodies")
 def BuyGoodies_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -88,6 +108,9 @@ def BuyGoodies_ajax(request):
 
 		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
+'''
+	get the webpage that displays the newsletters by GFB
+'''
 @view_config(renderer="templates/News.pt",name="News")
 def News_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -101,6 +124,9 @@ def News_ajax(request):
 
 		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
+'''
+	get the webpage that displays the locations of the host sites
+'''
 @view_config(renderer="templates/PickupLocations.pt",name="PickupLocations")
 def PickupLocations_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -114,6 +140,9 @@ def PickupLocations_ajax(request):
 
 		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
+'''
+	get the webpage that displays orders for admins specifically
+'''
 @view_config(renderer="templates/Admin_Sales.pt",name="Admin_Sales")
 def Admin_Sales_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -205,7 +234,9 @@ def Sales_ajax(request):
 
 
 
-
+'''
+	get the webpage that displays the information of the host sites for admins specifically
+'''
 @view_config(renderer="templates/Admin_HostSites.pt",name="Admin_HostSites")
 def HostSite_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -277,12 +308,14 @@ def HostSite_ajax(request):
 
 		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))
 
+'''
+	get the webpage the user is sent to when they are logged in, the admin dashboard
+'''
 @view_config(renderer="templates/Admin_Users.pt",name="Admin_Users")
 def User_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_Users"}
 	#return 'Ok'
-#Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 #Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 @view_config(renderer='json',name="Admin_Users", xhr=True )
 def User_ajax(request):
@@ -331,7 +364,9 @@ def User_ajax(request):
 
 		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))
 
-
+'''
+	get the webpage that displays the FAQ of GFB
+'''
 @view_config(renderer="templates/FAQ.pt",name="FAQ")
 def FAQ_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -345,6 +380,9 @@ def FAQ_ajax(request):
 
 		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
+'''
+	get the webpage that displays the recipies given by GFB
+'''
 @view_config(renderer="templates/Recipes.pt",name="Recipes")
 def Recipes_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -359,6 +397,10 @@ def Recipes_ajax(request):
 
 		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
+
+'''
+	get the webpage that displays the contact info of GFB 
+'''
 @view_config(renderer="templates/ContactUs.pt",name="ContactUs")
 def ContactUS_view(request):
 	#if the user is logged in redirect to the appropriate home page
@@ -377,8 +419,9 @@ def ContactUS_ajax(request):
 ########## INBETWEENS
 
 
-
-#Helper function to parse through Fields, returns list
+'''
+	helper function to parse through Fields, returns list
+'''
 def ParseFields(ajaxSTR):
 	paramList = str(ajaxSTR.params).split("&")
 	#for i in range (len(paramList)):

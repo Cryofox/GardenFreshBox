@@ -80,9 +80,15 @@ class GFBDatabaseController:
 	def authUser(self, email_str,pass_str, fName_str, lName_str, phoneNum_str, hstSite_iArr, credentials_i):
 		return true
 
+	'''
+		updates the user profile with the given information.
+	'''
 	def updateUser(self, email_str, newEmail_str,newPassword_str, newFirstName_str,newLastName_str, newPhoneNumber_str, hostSites_iAr,credentials_i):
  		return true
 
+	'''
+		returns the records of all users in the system
+	'''
  	def getUsers(self):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -100,6 +106,9 @@ class GFBDatabaseController:
 		return None	
 
 
+	'''
+		returns the records of a specific user in the system identified by their email as a string
+	'''
  	def getUser(self, email_str):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -116,6 +125,10 @@ class GFBDatabaseController:
 				return Dict
 
 		return None
+
+	'''
+		returns the records of a specific user in the system identified by their userid
+	'''
  	def getUser(self, userid):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -133,7 +146,9 @@ class GFBDatabaseController:
 
 		return None
 
-
+	'''
+		deletes the user, identified by their userid, from the database
+	'''
 	def removeUser(self, userid):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -147,10 +162,15 @@ class GFBDatabaseController:
 		return False		
 
 
+	'''
+		returns the records of a specific host site identified by the hostSiteID
+	'''
 	def getCoordinatorList(self,hostSiteID_int):
 		return  rows_ArrDict
  		
-
+	'''
+		returns the login credentials, username and password, from the database
+	'''
 	def getLogin(self,user_Str, pass_Str):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -172,6 +192,10 @@ class GFBDatabaseController:
 	#############
 	#Host Site Functions
 	#############
+
+	'''
+		returns true if the given host site name exists within the database and false if it does not
+	'''
 	def hostSiteNameExists(self, name_str):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -189,6 +213,9 @@ class GFBDatabaseController:
 		return False
 
 
+	'''
+		creates a new host site with the given information
+	'''
 	#Conflicting Schema with Function, Hours = None, Email = None. For this Demo.
 	#Add Coord Relationship Here aswell as in User
 	def addHostSite(self,name_str, address_str, city_str, province_str,postalCode_str, coordinatorIDs_iAr, hoursOfOperation_Dict):
@@ -227,6 +254,10 @@ class GFBDatabaseController:
 		print "ADDING HOSTSITE:FAILED"
 		return False
 
+
+	'''
+		updates the information of an existing host site with the given information. the host site is identified by the hostSiteID
+	'''
 	def updateHostSite(self,hostSiteID_int,name_str, address_str, city_str, province_str,postalCode_str, coordinatorIDs_iAr, hoursOfOperation_Dict):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -248,6 +279,10 @@ class GFBDatabaseController:
 
 		return False
 
+
+	'''
+		deletes the host site identified by the hostSiteId from the database
+	'''
 	def removeHostSite(self,hostSiteID_int):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -260,11 +295,16 @@ class GFBDatabaseController:
 
 		return False
 
+	'''
+		returns all host sites belonging to a given coordinator identified by its coordinatorID.
+	'''
 	def getHostSiteList(self,coordinatorID_i): 
 
 		return ArrDict
 
-	##
+	'''
+		returns the host site identified by its hostSiteID
+	'''
 	def getHostSite(self,hostSiteID_i):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -282,6 +322,9 @@ class GFBDatabaseController:
 
 		return None
 
+	'''
+		returns the records of all the host sites in the database.
+	'''
 	def getAllHostSites(self):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -302,6 +345,10 @@ class GFBDatabaseController:
 	#############
 	#Order Functions
 	#############
+
+	'''
+		creates a new order with the given parameters
+	'''
 	def createNewOrder(self,dateCreated_str, dateToDistribute_str, firstName_str, lastName_str, email_str, phoneNumber_str, shouldSendNotifications_bool, smallBoxQuantity_i,largeBoxQuantity_i, donations_decimal, donationReceipt_bool, address_Dict, totalPaid_decimal, hostSitePickupID_i, hostSiteOrderID_i, vouchers_iArr): 
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -325,7 +372,9 @@ class GFBDatabaseController:
 		print "ADDING ORDER:FAILED"
 		return False
 
-
+	'''
+		updates an existing order with the information given
+	'''
 	def updateOrder(self,orderID_i, dateCreated_str, dateToDistribute_str, firstName_str, lastName_str, email_str, phoneNumber_str, shouldSendNotifications_bool, smallBoxQuantity_i,largeBoxQuantity_i, donations_decimal, totalPaid_decimal, hostSitePickupID_i, hostSiteOrderID_i, vouchers_iArr):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -339,7 +388,9 @@ class GFBDatabaseController:
 
 		return False
 
-
+	'''
+		deletes the order, identified by the orderID, from the database
+	'''
 	def removeOrder(self,orderID_i): 
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -352,13 +403,16 @@ class GFBDatabaseController:
 
 		return False
 
+	'''
+		marks the order, identified by the orderId, as cancelled
+	'''
 	def cancelOrder(self,orderID_i): 
 		return Boolean
 
 
-
-
-
+	'''
+		returns the records of all the orders identified by being within the given start and end dates
+	'''
 	def getAllOrdersByDistributionDate(self,beginDate_str, endDate_str):
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -371,6 +425,9 @@ class GFBDatabaseController:
 			return records
 		return None
 
+	'''
+		returns the records of all the orders that have not been paid for identified by being within the given start and end dates
+	'''
 	def getAllUnpaidOrdersByDistributionDate(self,beginDate_Str, endDate_str): 
 		#Make sure mysql is running...duh
 		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
@@ -384,7 +441,9 @@ class GFBDatabaseController:
 
 		return None
 
-
+	'''
+		returns the records of all the orders that are cancelled identified by being within the given start and end dates
+	'''
 	def getAllCanceledOrdersByDistributionDate(self,beginDate_str, endDate_str):
 		return ArrDict
 	def getAllPaidOrdersByDistributionDate(self,beginDate_str, endDate_str):
@@ -402,9 +461,17 @@ class GFBDatabaseController:
 		return None
 
 
+	'''
+		returns the records of the orders identified by belonging to a given host site and being within the given start and end dates
+	'''
 
 	def getOrderByDistributionDate(self,hostSiteID_i, beginDate_str, endDate_Stre): 
 		return ArrDict	
+	
+	'''
+		returns the records of all the orders that are unpaid, belonging to a given host site, 
+		and identified by being within the given start and end dates
+	'''
 	def getUnpaidOrdersByDistributionDate(self,hostSiteID_i, beginDate_str, endDate_Stre): 
 		return ArrDict
 

@@ -131,7 +131,7 @@
 						<div class="row collapse">  	
 						<div class="small-9 columns">
 
-							<a  onClick="Login();Click('LoginModal');" href="#" class="button tiny radius">Submit</a>
+							<a  onClick="Login();Click('LoginModal');"  class="button tiny radius">Submit</a>
 							<a  onClick="Click('LoginModal') " href="#" class="button tiny radius">Cancel</a>	
 										
 						</div></div>
@@ -505,7 +505,7 @@ function CheckLogin()
  		{
 
 		theDiv.innerHTML +='<li><a href="/Admin_Users">View and Edit Coordinators</a></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li>';
-		theDiv_.innerHTML +='<button onClick="LogOut()" data-options="align:left">Logout</button>';
+		theDiv_.innerHTML +='<button onClick="LogOut();" data-options="align:left" href="/Admin_HostSites">Logout</button>';
 		}
 
  		else
@@ -520,7 +520,7 @@ FetchHostSites();
 
 
     document.cookie = "AccountType"+'=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-
+	window.location.assign("/");
  	}
 
     function Login() {
@@ -544,7 +544,7 @@ FetchHostSites();
 		var myObject = JSON.parse(response);        	
 
 		setCookie("AccountType",myObject[6],10); 
-
+		window.location.reload(true);
         },
         error: function(jqXHR, textStatus, errorThrown){
 

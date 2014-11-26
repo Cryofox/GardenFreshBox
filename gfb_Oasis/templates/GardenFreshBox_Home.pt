@@ -12,7 +12,7 @@
 <script>
 	function setCookie(cname, cvalue, exdays) 
 	{
-	alert("guys im here");
+
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
@@ -33,11 +33,11 @@
 	function checkCookie() {
 	    var acType = getCookie("AccountType");
 	    if (acType == 1) {
-	        alert("Welcome back mr Stark." + acType);
+
 	        return "Admin"
 	    } else 
 	    	{
-			alert("We must turn back mr frodo");
+
 	        return "General"
 	        }
 	    }
@@ -59,7 +59,7 @@
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1 id="button_Green" ><a href="/" style="color: #29A329"> Garden Fresh Box</a></h1>
+        <h1  ><a href="/" style="color: #29A329"> Garden Fresh Box</a></h1>
       </li>
       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -181,21 +181,17 @@
     $(document).foundation();
   </script>
 
-
-  <script>
+<script>
     $(document).foundation();
 
- <!-- Ajax POSTS -->
- 	<!-- Given TextBox ID's Constructs the Ajax POST and sends -->
- 	function CheckLogin()
+    function CheckLogin()
  	{
  	var theDiv = document.getElementById("Controller");
   	var theDiv_ = document.getElementById("Controller_LogINOUT");	
  		if(checkCookie()=="Admin")
  		{
- 		alert("COOKIE IS ADMIN!");
 		theDiv.innerHTML +='<li><a href="/Admin_Users">View and Edit Coordinators</a></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li>';
-		theDiv_.innerHTML +='<button onClick="LogOut()" data-options="align:left">Logout</button>';
+		theDiv_.innerHTML +='<button onClick="LogOut();" data-options="align:left" >Logout</button>';
 		}
 
  		else
@@ -208,13 +204,13 @@
 
  	function LogOut(){
 
- 	alert("Workin?");
+
     document.cookie = "AccountType"+'=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
- 	alert("Workin?");
+	window.location.reload(true);
  	}
 
     function Login() {
-    alert("LOGGING IS BEING PERFORMED");
+
 
        $.ajax({
         url: "http://localhost:8080/",  
@@ -234,39 +230,41 @@
 		var myObject = JSON.parse(response);        	
 
 		setCookie("AccountType",myObject[6],10); 
-
+		
+		window.location.reload(true);
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert(textStatus, errorThrown);
+
         }
 
 		});
 
-		
+
     };
- <!--------------->
-<!-- Button Click -->
-	function Click(btnID) 
-	{document.getElementById(btnID).click();}
-
-
-
-
-    function SetInputText(id,n, a, c, pr,po,h) 
-    {
-	document.getElementById('hidden_ID').value=id;
-	document.getElementById('input_HostSite Name').value=n;
-	document.getElementById('input_Address').value=a;
-	document.getElementById('input_City').value=c;
-	document.getElementById('input_Province').value=pr;
-	document.getElementById('input_postalCode').value=po;
-	document.getElementById('input_hoursOfOperation').value=h;
-    };
-
-
-	window.onload = CheckLogin;
+        window.onload = CheckLogin;
   </script>
 
 
   </body>
+   <footer>
+	<br>
+	<div>
+      <div class="row collapse">
+          <div class="large-3 columns">
+		      <a><img src="/static/ontarioCommunityHealth.png"></a>
+		  </div>
+			<div class="large-3 columns">
+		      <a><img src="/static/Ministry_of_Children_and_Youth_Services.png"></a>
+		  </div>
+		  <div class="large-3 columns">
+		      <a><img src="/static/Waterloo-Wellington-Local-Health-Network.png"></a>
+		  </div>
+		  <div class="large-3 columns">
+		      <a><img src="/static/sheild.png"></a>
+		  </div>
+		  
+	   </div>
+    </div>
+	
+  </footer>
 </html>

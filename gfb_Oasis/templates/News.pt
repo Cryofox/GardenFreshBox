@@ -32,7 +32,7 @@
 	<script>
 		function setCookie(cname, cvalue, exdays) 
 		{
-		alert("guys im here");
+
 	    var d = new Date();
 	    d.setTime(d.getTime() + (exdays*24*60*60*1000));
 	    var expires = "expires="+d.toUTCString();
@@ -53,11 +53,11 @@
 		function checkCookie() {
 		    var acType = getCookie("AccountType");
 		    if (acType == 1) {
-		        alert("Welcome back mr Stark." + acType);
+
 		        return "Admin"
 		    } else 
 		    	{
-				alert("We must turn back mr frodo");
+
 		        return "General"
 		        }
 		    }
@@ -241,7 +241,7 @@ src="https://drive.google.com/file/d/0BzKCBKRWIS9mOWtNSnBKZ1lNOUU/view?usp=shari
   	var theDiv_ = document.getElementById("Controller_LogINOUT");	
  		if(checkCookie()=="Admin")
  		{
- 		alert("COOKIE IS ADMIN!");
+
 		theDiv.innerHTML +='<li><a href="/Admin_Users">View and Edit Coordinators</a></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li>';
 		theDiv_.innerHTML +='<button onClick="LogOut()" data-options="align:left">Logout</button>';
 		}
@@ -256,13 +256,13 @@ src="https://drive.google.com/file/d/0BzKCBKRWIS9mOWtNSnBKZ1lNOUU/view?usp=shari
 
  	function LogOut(){
 
- 	alert("Workin?");
+
     document.cookie = "AccountType"+'=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
- 	alert("Workin?");
+
  	}
 
     function Login() {
-    alert("LOGGING IS BEING PERFORMED");
+
 
        $.ajax({
         url: "http://localhost:8080/",  
@@ -285,13 +285,14 @@ src="https://drive.google.com/file/d/0BzKCBKRWIS9mOWtNSnBKZ1lNOUU/view?usp=shari
 
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert(textStatus, errorThrown);
+
         }
 
 		});
 
 		
     };
+        window.onload = CheckLogin;
   </script>
 
   </body>

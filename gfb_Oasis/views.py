@@ -80,7 +80,8 @@ def BuyGoodies_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Buy Goodies"}
 	#return 'Ok'
-def ContactUS_ajax(request):
+@view_config(renderer='json',name="BuyGoodies", xhr=True )
+def BuyGoodies_ajax(request):
 	if (request.params["field1"]=="Login"):
 		#test = "hello"
 		myDB = GFBDatabaseController();
@@ -281,14 +282,6 @@ def User_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_Users"}
 	#return 'Ok'
-@view_config(renderer='json',name="Admin_Users", xhr=True )
-def User_ajax(request):
-	if (request.params["field1"]=="Login"):
-		#test = "hello"
-		myDB = GFBDatabaseController();
-
-		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
-
 #Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 #Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 @view_config(renderer='json',name="Admin_Users", xhr=True )

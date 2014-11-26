@@ -15,7 +15,7 @@
 <script>
 	function setCookie(cname, cvalue, exdays) 
 	{
-	alert("guys im here");
+
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
@@ -36,11 +36,11 @@
 	function checkCookie() {
 	    var acType = getCookie("AccountType");
 	    if (acType == 1) {
-	        alert("Welcome back mr Stark." + acType);
+
 	        return "Admin"
 	    } else 
 	    	{
-			alert("We must turn back mr frodo");
+
 	        return "General"
 	        }
 	    }
@@ -339,7 +339,7 @@
 
 		var myObject = JSON.parse(response);      
 
-		alert("Your Order has been updated!");	
+	
 
 			
 	
@@ -347,7 +347,7 @@
         },
         error: function(jqXHR, textStatus, errorThrown){
             <!--alert(textStatus, errorThrown);-->
-    		alert("ERROR: There was a problem updating your order.");	
+
         }
 
 		});
@@ -378,7 +378,7 @@
 
 		var myObject = JSON.parse(response);      
 
-		alert("Your Order has been updated!");	
+	
 
 			
 	
@@ -386,7 +386,7 @@
         },
         error: function(jqXHR, textStatus, errorThrown){
             <!--alert(textStatus, errorThrown);-->
-    		alert("ERROR: There was a problem updating your order.");	
+
         }
 
 		});
@@ -409,7 +409,7 @@
         success: function(response) {
     
 
-		alert("Your Order has been updated!");	
+
 
 			
 	
@@ -417,7 +417,7 @@
 
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert(textStatus, errorThrown);
+
     		
         }
 
@@ -436,7 +436,7 @@
         success: function(response) {
 
 		var myObject = JSON.parse(response);        
-		alert(myObject[0]);	
+	
 
 		PopulateGeneralList(myObject);	
 	
@@ -444,7 +444,7 @@
 
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert(textStatus, errorThrown);
+
         }
 
 		});
@@ -480,7 +480,7 @@
 
 	function PopulateGeneralList(records)
 	{
-		alert('Page Has Loaded...Check For Change in Lists? Response='+records.length);
+
 	
 
 
@@ -503,7 +503,7 @@ function CheckLogin()
   	var theDiv_ = document.getElementById("Controller_LogINOUT");	
  		if(checkCookie()=="Admin")
  		{
- 		alert("COOKIE IS ADMIN!");
+
 		theDiv.innerHTML +='<li><a href="/Admin_Users">View and Edit Coordinators</a></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li>';
 		theDiv_.innerHTML +='<button onClick="LogOut()" data-options="align:left">Logout</button>';
 		}
@@ -512,19 +512,19 @@ function CheckLogin()
  		{
 		theDiv_.innerHTML +='<button href="#" class="button tiny radius" data-reveal-id="drop1">Login</button>';
  		}
-
+FetchHostSites();
  	};
 
 
  	function LogOut(){
 
- 	alert("Workin?");
+
     document.cookie = "AccountType"+'=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
- 	alert("Workin?");
+
  	}
 
     function Login() {
-    alert("LOGGING IS BEING PERFORMED");
+
 
        $.ajax({
         url: "http://localhost:8080/",  
@@ -547,15 +547,15 @@ function CheckLogin()
 
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert(textStatus, errorThrown);
+
         }
 
 		});
 
 		
     };
-    
-	window.onload = FetchHostSites;
+    window.onload = CheckLogin;
+	<!--window.onload =;-->
   </script>
 
   </body>

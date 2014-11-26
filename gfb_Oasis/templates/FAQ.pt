@@ -37,7 +37,7 @@
 <script>
 	function setCookie(cname, cvalue, exdays) 
 	{
-	alert("guys im here");
+
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
@@ -58,11 +58,11 @@
 	function checkCookie() {
 	    var acType = getCookie("AccountType");
 	    if (acType == 1) {
-	        alert("Welcome back mr Stark." + acType);
+
 	        return "Admin"
 	    } else 
 	    	{
-			alert("We must turn back mr frodo");
+
 	        return "General"
 	        }
 	    }
@@ -175,8 +175,8 @@
 						<div class="row collapse">  	
 						<div class="small-9 columns">
 
-							<a  onClick="Login();Click('LoginModal');" href="#" class="button tiny radius">Submit</a>
-							<a  onClick="Click('LoginModal') " href="#" class="button tiny radius">Cancel</a>	
+							<a  onClick="Login(); " href="/FAQ" class="button tiny radius">Submit</a>
+							<a  onClick="Click('LoginModal') " href="/FAQ" class="button tiny radius">Cancel</a>	
 										
 						</div></div>
 
@@ -261,9 +261,8 @@ Site. Enjoy!</p>
   	var theDiv_ = document.getElementById("Controller_LogINOUT");	
  		if(checkCookie()=="Admin")
  		{
- 		alert("COOKIE IS ADMIN!");
 		theDiv.innerHTML +='<li><a href="/Admin_Users">View and Edit Coordinators</a></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li>';
-		theDiv_.innerHTML +='<button onClick="LogOut()" data-options="align:left">Logout</button>';
+		theDiv_.innerHTML +='<button onClick="LogOut();" data-options="align:left" href="/FAQ">Logout</button>';
 		}
 
  		else
@@ -276,13 +275,13 @@ Site. Enjoy!</p>
 
  	function LogOut(){
 
- 	alert("Workin?");
+
     document.cookie = "AccountType"+'=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
- 	alert("Workin?");
+
  	}
 
     function Login() {
-    alert("LOGGING IS BEING PERFORMED");
+
 
        $.ajax({
         url: "http://localhost:8080/",  
@@ -305,13 +304,14 @@ Site. Enjoy!</p>
 
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert(textStatus, errorThrown);
+
         }
 
 		});
 
-		
+			
     };
+        window.onload = CheckLogin;
   </script>
 
   </body>

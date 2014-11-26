@@ -67,7 +67,6 @@ def index_view(request):
 	#return 'Ok'
 @view_config(renderer='json', xhr=True )
 def index_ajax(request):	
-	print ("YAY I WAS CALLED")
 	if (request.params["field1"]=="Login"):
 		#test = "hello"
 		myDB = GFBDatabaseController();
@@ -81,17 +80,38 @@ def BuyGoodies_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Buy Goodies"}
 	#return 'Ok'
+def ContactUS_ajax(request):
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
+
 @view_config(renderer="templates/News.pt",name="News")
 def News_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "News"}
 	#return 'Ok'
+@view_config(renderer='json',name="News", xhr=True )
+def News_ajax(request):
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
+
 @view_config(renderer="templates/PickupLocations.pt",name="PickupLocations")
 def PickupLocations_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "PickupLocations"}
 	#return 'Ok'
+@view_config(renderer='json',name="PickupLocations", xhr=True )
+def PickupLocations_ajax(request):
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
 
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
 @view_config(renderer="templates/Admin_Sales.pt",name="Admin_Sales")
 def Admin_Sales_view(request):
@@ -171,6 +191,12 @@ def Sales_ajax(request):
 		myDB.removeOrder(
 			request.params["field2"]);
 		return 	
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))
+
 #Used to Update DB
 
 
@@ -184,7 +210,6 @@ def HostSite_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_HostSites"}
 	#return 'Ok'
-
 #Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 #Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 @view_config(renderer='json',name="Admin_HostSites", xhr=True )
@@ -245,12 +270,24 @@ def HostSite_ajax(request):
 		myDB.removeHostSite(
 			request.params["field2"]);
 		return 	
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))
 
 @view_config(renderer="templates/Admin_Users.pt",name="Admin_Users")
 def User_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_Users"}
 	#return 'Ok'
+@view_config(renderer='json',name="Admin_Users", xhr=True )
+def User_ajax(request):
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
 #Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
 #Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
@@ -295,6 +332,11 @@ def User_ajax(request):
 		myDB.removeUser(
 			request.params["field2"]);
 		return 
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))
 
 
 @view_config(renderer="templates/FAQ.pt",name="FAQ")
@@ -302,13 +344,27 @@ def FAQ_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "FAQ"}
 	#return 'Ok'
+@view_config(renderer='json',name="FAQ", xhr=True )	
+def FAQ_ajax(request):
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
 
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
 @view_config(renderer="templates/Recipes.pt",name="Recipes")
 def Recipes_view(request):
 	#if the user is logged in redirect to the appropriate home page
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "Recipes"}
-	#return 'Ok'		
+	#return 'Ok'	
+
+@view_config(renderer='json',name="Recipes", xhr=True )	
+def Recipes_ajax(request):
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
 @view_config(renderer="templates/ContactUs.pt",name="ContactUs")
 def ContactUS_view(request):
@@ -316,6 +372,13 @@ def ContactUS_view(request):
 	return {"layout": site_layout(), "user_header": user_header(request), "location": "ContactUs"}
 	#return 'Ok'		
 
+@view_config(renderer='json',name="ContactUs", xhr=True )
+def ContactUS_ajax(request):
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))	
 
 
 ########## INBETWEENS

@@ -81,7 +81,7 @@
 		<li><a href="/PickupLocations">Pickup Locations</a></li>
 		<li><a href="/News">News</a></li>
 		<li><a href="/FAQ">F.A.Q.</a></li>
-		<li><a href="/Contact">Contact us</a></li>
+		<li><a href="/ContactUs">Contact us</a></li>
 		<li class="has-form">
 
 		<div id="Controller_LogINOUT">	
@@ -134,8 +134,11 @@
 					</form>
 				</div>
 
-<!-- Top Bar Code End-->
+
+
+
 </div>
+<!-- Top Bar Code End-->
 <div class="row collapse">
     <div class="large-2 columns">
     </div>

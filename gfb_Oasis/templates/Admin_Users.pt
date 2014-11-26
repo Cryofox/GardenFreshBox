@@ -28,14 +28,12 @@
 
 
 
-
 <div class="fixed">
-
 <!-- Top Bar Code, Copy Paste this on other pages for consistency -->
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1 id="button_Green" ><a href="/" style="color: #29A329"> Garden Fresh Box</a></h1>
+        <h1><a href="/">Garden Fresh Box</a></h1>
       </li>
       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -49,9 +47,9 @@
 		<a href="#">Admin Controls</a>
 		<ul class="dropdown">
 		<li><a href="#">Change Account Settings</a></li>
-		<li><a href="#">View and Edit Coordinators</a></li>   
-		<li><a href="/Admin_HostSites">View and Edit HostSites</a></li>
-		<li><a href="/Admin_Sales">View and Edit Sales</a></li>
+		<li><a href="/">View and Edit Coordinators</a></li>   
+		<li><a href="#">View and Edit HostSites</a></li>
+		<li><a href="#">View and Edit Sales</a></li>
 		</ul>
 
 		</li>
@@ -109,9 +107,9 @@
 
 			
 			</ul>
-<!-- Top Bar Code End-->
+
 </div>
-			<H1> ADMIN SALES </H1>
+			<H1> ADMIN HOSTSITES </H1>
 
 			<a href="#" class="button tiny radius" data-reveal-id="AddNew_RecordModal">Add New +</a>
 	
@@ -123,17 +121,13 @@
 		  <thead>
 		    <tr>
 		      <th width="100">  </th>
-		      <th> Customer FirstName </th>
-		      <th> Customer LastName </th>		      
-		      <th width="100"> Phone # </th>
-  		      <th width="100"> Email </th>
-  		      <th width="100"> Large Boxes </th>
-  		      <th width="100"> Small Boxes </th>
- 		      <th width="150"> PurchaseDate</th>
- 		      <th width="100"> Voucher </th> 		      
-		      <th width="150"> Total</th>
-		      <th width="150"> Donation</th>	
-		      <th width="150"> HostSite</th>			      
+		      <th> HostSite Name </th>
+		      <th> Address </th>		      
+		      <th width="100"> city </th>
+  		      <th width="100"> province </th>
+  		      <th width="100"> postalCode </th>
+  		      <th width="100"> coordinatorIDs </th>
+ 		      <th width="150">  hoursOfOperation</th>		      
 		    </tr>
 		  </thead>
 
@@ -144,7 +138,7 @@
 		    <h1>This is where the Dynamic Stuff Goes</h1>
 
 			<tr>
-			<td> <a onclick="SetInputText(&#34 0 &#34,  &#34 Mr. &#34 ,  &#34 Bean &#34 ,  &#34 911 &#34 , &#34 @trez &#34 , &#34 #0 &#34 , &#34 #0 &#34 , &#34 01,01,1992 &#34 , &#34 Dynamic!!! &#34 , &#34 $1,000,000 &#34 , &#34 $-10 &#34 , &#34 1 &#34   )" href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a> </td>
+			<td> <a onclick="SetInputText(&#34 0 &#34,  &#34 Mr. &#34 ,  &#34 Bean &#34 ,  &#34 911 &#34 , &#34 @trez &#34 , &#34 #0 &#34)" href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a> </td>
 			<td> Mr.</td>			
 			<td> Bean</td>				
 			<td> 911</td>	
@@ -152,10 +146,7 @@
 			<td> #0</td>			
 			<td> #0</td>
 			<td> 01,01,1992</td>
-			<td>Dynamic!!!</td>
-			<td>$1,000,000</td>
-			<td>$-10</td>
-			<td>1</td>
+
 			</tr>
 
 
@@ -167,45 +158,35 @@
 			<div class="row">
 					<div class="small-6 columns">
 						<!-- First Column -->
-						<label>First Name:
-							<input id="input_FName" type="text" placeholder="large-12.columns" />
+						<label>HostSite Name:
+							<input id="input_HostSite Name" type="text" placeholder="large-12.columns" />
 						</label>
-						<label>Last Name:
-							<input id="input_LName" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Phone Number:
-							<input id="input_PNum"  type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Email:
-							<input id="input_Email" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Large Boxes:
-							<input id="input_Large Boxes" type="text" placeholder="large-12.columns" />
-						</label>	
 
-						<label>HostSite:
-							<input id="input_HostSite" type="text" placeholder="large-12.columns" />
+						<label>Address:
+							<input id="input_Address" type="text" placeholder="large-12.columns" />
+						</label>
+
+						<label>City:
+							<input id="input_City"  type="text" placeholder="large-12.columns" />
+						</label>
+
+						<label>Province:
+							<input id="input_Province" type="text" placeholder="large-12.columns" />
 						</label>
 					</div>
 					<div class="small-6 columns">
 						<!-- Second Column -->
 		
-						<label>PurchaseDate:
-							<input id="input_PurchaseDate" type="text" placeholder="large-12.columns" />
+						<label>postalCode:
+							<input id="input_postalCode" type="text" placeholder="large-12.columns" />
 						</label>
-						<label>Voucher:
-							<input id="input_Voucher" type="text" placeholder="large-12.columns" />
+						<label>coordinatorIDs:
+							<input id="input_coordinatorIDs" type="text" placeholder="large-12.columns" />
 						</label>
-						<label>Total Paid:
-							<input id="input_Total Paid" type="text" placeholder="large-12.columns" />
+						<label>hoursOfOperation:
+							<input id="input_hoursOfOperation" type="text" placeholder="large-12.columns" />
 						</label>
-						<label>Donations:
-							<input id="input_Donations" type="text" placeholder="large-12.columns" />
-						</label>
-
-						<label>Small Boxes:
-							<input id="input_Small Boxes" type="text" placeholder="large-12.columns" />
-						</label>	
+	
 					</div>
 			</div>
 			<a class="close-reveal-modal" id="CloseContextModal">&#215;</a>
@@ -228,45 +209,35 @@
 			<div class="row">
 					<div class="small-6 columns">
 						<!-- First Column -->
-						<label>First Name:
-							<input id="input_FNameZZ" type="text" placeholder="large-12.columns" />
+						<label>HostSite Name:
+							<input id="input_HostSite NameZZ" type="text" placeholder="large-12.columns" />
 						</label>
-						<label>Last Name:
-							<input id="input_LNameZZ" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Phone Number:
-							<input id="input_PNumZZ"  type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Email:
-							<input id="input_EmailZZ" type="text" placeholder="large-12.columns" />
-						</label>
-						<label>Large Boxes:
-							<input id="input_Large BoxesZZ" type="text" placeholder="large-12.columns" />
-						</label>	
 
-						<label>HostSite:
-							<input id="input_HostSiteZZ" type="text" placeholder="large-12.columns" />
+						<label>Address:
+							<input id="input_AddressZZ" type="text" placeholder="large-12.columns" />
+						</label>
+
+						<label>City:
+							<input id="input_CityZZ"  type="text" placeholder="large-12.columns" />
+						</label>
+
+						<label>Province:
+							<input id="input_ProvinceZZ" type="text" placeholder="large-12.columns" />
 						</label>
 					</div>
 					<div class="small-6 columns">
 						<!-- Second Column -->
 		
-						<label>PurchaseDate:
-							<input id="input_PurchaseDateZZ" type="text" placeholder="large-12.columns" />
+						<label>postalCode:
+							<input id="input_postalCodeZZ" type="text" placeholder="large-12.columns" />
 						</label>
-						<label>Voucher:
-							<input id="input_VoucherZZ" type="text" placeholder="large-12.columns" />
+						<label>coordinatorIDs:
+							<input id="input_coordinatorIDsZZ" type="text" placeholder="large-12.columns" />
 						</label>
-						<label>Total Paid:
-							<input id="input_Total PaidZZ" type="text" placeholder="large-12.columns" />
+						<label>hoursOfOperation:
+							<input id="input_hoursOfOperationZZ" type="text" placeholder="large-12.columns" />
 						</label>
-						<label>Donations:
-							<input id="input_DonationsZZ" type="text" placeholder="large-12.columns" />
-						</label>
-
-						<label>Small Boxes:
-							<input id="input_Small BoxesZZ" type="text" placeholder="large-12.columns" />
-						</label>	
+	
 					</div>
 			</div>
 			<a class="close-reveal-modal" id="CloseContextModal">&#215;</a>
@@ -308,30 +279,24 @@
     $(document).foundation();
 
  <!-- Ajax POSTS -->
-
  	<!-- Given TextBox ID's Constructs the Ajax POST and sends -->
      function UpdateRecord() {
 
 
        $.ajax({
-        url: "http://localhost:8080/Admin_Sales",  
+        url: "http://localhost:8080/Admin_HostSites",  
         type: "post",
         data: {
-        field1: "UpdateOrder", 
+        field1: "UpdateHostSite", 
 
         field2:  document.getElementById('hidden_ID').value,  
-        field3:  document.getElementById('input_FName').value,    
-		field4:  document.getElementById('input_LName').value,
-		field5:  document.getElementById('input_PNum').value,
-		field6:  document.getElementById('input_Email').value,
-		field7:  document.getElementById('input_Large Boxes').value,
-		field8:  document.getElementById('input_Small Boxes').value,
-		field9:  document.getElementById('input_PurchaseDate').value,
-		field10:  document.getElementById('input_Voucher').value,
-		field11: document.getElementById('input_Total Paid').value,
-		field12: document.getElementById('input_Donations').value,
-        field13: document.getElementById('input_HostSite').value 
-
+        field3:  document.getElementById('input_HostSite Name').value,  
+        field4:  document.getElementById('input_Address').value,    
+		field5:  document.getElementById('input_City').value,
+		field6:  document.getElementById('input_Province').value,
+		field7:  document.getElementById('input_postalCode').value,
+		field8:  document.getElementById('input_coordinatorIDs').value,
+		field9:  document.getElementById('input_hoursOfOperation').value
         },
         dataType: 'json',
         success: function(response) {
@@ -342,8 +307,7 @@
 
 			
 	
- 			
-
+ 		
         },
         error: function(jqXHR, textStatus, errorThrown){
             <!--alert(textStatus, errorThrown);-->
@@ -358,26 +322,20 @@
 
      function AddNewRecord() {
 
-		alert("function called");	
-		alert(document.getElementById('hidden_IDZZ').value);
+
        $.ajax({
-        url: "http://localhost:8080/Admin_Sales",  
+        url: "http://localhost:8080/Admin_HostSites",  
         type: "post",
         data: {
-        field1: "AddNewOrder", 
-        field2:  document.getElementById('hidden_IDZZ').value,  
-        field3:  document.getElementById('input_FNameZZ').value,    
-		field4:  document.getElementById('input_LNameZZ').value,
-		field5:  document.getElementById('input_PNumZZ').value,
-		field6:  document.getElementById('input_EmailZZ').value,
-		field7:  document.getElementById('input_Large BoxesZZ').value,
-		field8:  document.getElementById('input_Small BoxesZZ').value,
-		field9:  document.getElementById('input_PurchaseDateZZ').value,
-		field10:  document.getElementById('input_VoucherZZ').value,
-		field11: document.getElementById('input_Total PaidZZ').value,
-		field12: document.getElementById('input_DonationsZZ').value,
-        field13: document.getElementById('input_HostSiteZZ').value 
+        field1: "AddNewHostSite", 
 
+        field2:  document.getElementById('input_HostSite NameZZ').value,  
+        field3:  document.getElementById('input_AddressZZ').value,    
+		field4:  document.getElementById('input_CityZZ').value,
+		field5:  document.getElementById('input_ProvinceZZ').value,
+		field6:  document.getElementById('input_postalCodeZZ').value,
+		field7:  document.getElementById('input_coordinatorIDsZZ').value,
+		field8:  document.getElementById('input_hoursOfOperationZZ').value
         },
         dataType: 'json',
         success: function(response) {
@@ -388,12 +346,11 @@
 
 			
 	
- 			
-
+ 		
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert(textStatus, errorThrown);
-    		
+            <!--alert(textStatus, errorThrown);-->
+    		alert("ERROR: There was a problem updating your order.");	
         }
 
 		});
@@ -403,19 +360,18 @@
 
      function DeleteRecord() {
 
-		alert("function called");	
-		alert(document.getElementById('hidden_IDZZ').value);
+
+
        $.ajax({
-        url: "http://localhost:8080/Admin_Sales",  
+        url: "http://localhost:8080/Admin_HostSites",  
         type: "post",
         data: {
-        field1: "DeleteOrder", 
+        field1: "DeleteHostSite", 
         field2:  document.getElementById('hidden_ID').value,  
         },
         dataType: 'json',
         success: function(response) {
-
-		var myObject = JSON.parse(response);      
+    
 
 		alert("Your Order has been updated!");	
 
@@ -437,7 +393,7 @@
     function FetchHostSites() {
 
        $.ajax({
-        url: "http://localhost:8080/Admin_Sales",  
+        url: "http://localhost:8080/Admin_HostSites",  
         type: "post",
         data: {field1: "Fetch", field2: "NotFetch"},
         dataType: 'json',
@@ -467,22 +423,17 @@
 
 
 
-    function SetInputText(id,fN, lN, pN, em, lB, sB, pD, V, t, D, hs) 
+    function SetInputText(id,n, a, c, pr,po,h) 
     {
 	document.getElementById('hidden_ID').value=id;
-	document.getElementById('input_FName').value=fN;
-	document.getElementById('input_LName').value=lN;
-	document.getElementById('input_PNum').value=pN;
-	document.getElementById('input_Email').value=em;
-	document.getElementById('input_Large Boxes').value=lB;
+	document.getElementById('input_HostSite Name').value=n;
+	document.getElementById('input_Address').value=a;
+	document.getElementById('input_City').value=c;
+	document.getElementById('input_Province').value=pr;
+	document.getElementById('input_postalCode').value=po;
+	document.getElementById('input_hoursOfOperation').value=h;
 
-	document.getElementById('input_Small Boxes').value=sB;
-	document.getElementById('input_PurchaseDate').value=pD;
-	document.getElementById('input_Voucher').value=V;
-	document.getElementById('input_Total Paid').value=t;
-	document.getElementById('input_Donations').value=D;
-	
-	document.getElementById('input_HostSite').value=hs;	
+
     };
 
 <!-- Button Click -->
@@ -505,7 +456,7 @@
 		<!--theDiv.innerHTML += '<tr><td> <a href="#" class="button tiny radius" data-reveal-id="edit_ItemModal">Edit</a> </td><td> <a href="#" class="button tiny radius" data-reveal-id="view_ItemModal">View</a> </td><td> 01,01,1992</td><td>Dynamic!!!</td><td>$1,000,000</td></tr><br>';-->
 
 <!-- #34="  -->
-		theDiv.innerHTML +='<tr><td><a Onclick= "SetInputText(&#34 ' +records[i][0]+ ' &#34,&#34 ' +records[i][3]+ ' &#34 ,  &#34 ' +records[i][4]+ ' &#34 ,  &#34 ' +records[i][6]+ ' &#34 , &#34 ' +records[i][5]+ ' &#34 , &#34 ' +records[i][8]+ ' &#34 , &#34 ' +records[i][9]+ ' &#34 , &#34 ' +records[i][2]+ ' &#34 , &#34 Dynamic!!! &#34 , &#34 ' +records[i][12]+ ' &#34 , &#34 ' +records[i][10]+ ' &#34 , &#34 ' +records[i][14]+ ' &#34   )" href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a></td><td>'+records[i][3]+'</td><td>'+records[i][4]+'</td><td>'+records[i][6]+'</td><td>'+records[i][5]+'</td><td>'+records[i][9]+'</td><td>'+records[i][8]+'</td><td>'+records[i][2]+'</td><td>Dynamic!!!</td><td>'+records[i][12]+'</td><td>'+records[i][10]+'</td><td>'+records[i][14]+'</td></tr>';
+		theDiv.innerHTML +='<tr><td><a Onclick= "SetInputText(&#34 ' +records[i][0]+ ' &#34,&#34 ' +records[i][1]+ ' &#34 ,  &#34 ' +records[i][2]+ ' &#34 ,  &#34 ' +records[i][3]+ ' &#34 , &#34 ' +records[i][4]+ ' &#34 , &#34 ' +records[i][5]+ ' &#34 , &#34 ' +records[i][7]+ ' &#34)" href="#" class="button tiny radius" data-reveal-id="edit_RecordModal">Edit</a></td><td>'+records[i][1]+'</td><td>'+records[i][2]+'</td><td>'+records[i][3]+'</td><td>'+records[i][4]+'</td><td>'+records[i][5]+'</td><td>'+records[i][0]+'</td><td>'+records[i][7]+'</td></tr>';
 
 		}
 

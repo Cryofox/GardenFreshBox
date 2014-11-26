@@ -66,6 +66,7 @@ class GFBDatabaseController:
 					for x in range (len(hstSite_iArr)):			
 						cur.execute("INSERT INTO TBL_COORDINATOR_HOSTSITE_REL VALUES (null,"+str(record[0][0])+","+str(hstSite_iArr[x])+")");
 				print "Success!"
+				
 				return True
 		print "ADDING USER:FAILED"
 		return False

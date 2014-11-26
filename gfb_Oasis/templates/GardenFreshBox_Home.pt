@@ -68,12 +68,14 @@
     <section class="top-bar-section">
         <!-- Left Nav Section -->
     
-	<div id="Controller" class="left">
 
-	</div>
 
       <!-- Right Nav Section -->
 	<ul class="right">
+
+	<div id="Controller" class="left">
+
+	</div>
 		<li><a href="/BuyGoodies">Buy Goodies</a></li>
 		<li><a href="/Recipes">Recipes</a></li>
 		<li><a href="/PickupLocations">Pickup Locations</a></li>
@@ -81,7 +83,11 @@
 		<li><a href="/FAQ">F.A.Q.</a></li>
 		<li><a href="/Contact">Contact us</a></li>
 		<li class="has-form">
-		<button id="dropButton" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" data-options="align:left">Login</button>
+
+		<div id="Controller_LogINOUT">	
+		
+		</div>
+
 
 		</li>
 
@@ -94,7 +100,8 @@
   			<!-- Top bar messes with formatting, reference the dropdown here instead to fix -->
 
 
-				<ul id="drop1" class="f-dropdown small"  data-dropdown-content aria-hidden="true" tabindex="-1">
+				<div id="drop1" class="reveal-modal" data-reveal>
+				<a class="close-reveal-modal" id="LoginModal">&#215;</a>
 					<form>
 					<fieldset>
 					<legend>Credentials</legend>
@@ -117,14 +124,16 @@
 						  </div>
 						<div class="row collapse">  	
 						<div class="small-9 columns">
+
 							<a  onClick="Login()" href="#" class="button tiny radius">Submit</a>
-							<a  onClick="Click('dropButton') " href="#" class="button tiny radius">Cancel</a>	
+							<a  onClick="Click('LoginModal') " href="#" class="button tiny radius">Cancel</a>	
 										
 						</div></div>
 
 					</fieldset>
 					</form>
-				</ul>
+				</div>
+
 <!-- Top Bar Code End-->
 </div>
 
@@ -165,15 +174,28 @@
  	function CheckLogin()
  	{
  	var theDiv = document.getElementById("Controller");
+  	var theDiv_ = document.getElementById("Controller_LogINOUT");	
  		if(checkCookie()=="Admin")
  		{
  		alert("COOKIE IS ADMIN!");
-		theDiv.innerHTML +='<li class="has-dropdown"><a href="#">Admin Controls</a><ul class="dropdown"><li><button href="/Admin_Users">View and Edit Coordinators</button></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li></ul></li>';
+		theDiv.innerHTML +='<li><a href="/Admin_Users">View and Edit Coordinators</a></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li>';
+		theDiv_.innerHTML +='<button onClick="LogOut()" data-options="align:left">Logout</button>';
+		}
+
+ 		else
+ 		{
+		theDiv_.innerHTML +='<button href="#" class="button tiny radius" data-reveal-id="drop1">Login</button>';
  		}
 
  	};
 
 
+ 	function LogOut(){
+
+ 	alert("Workin?");
+    document.cookie = "AccountType"+'=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+ 	alert("Workin?");
+ 	}
 
     function Login() {
     alert("LOGGING IS BEING PERFORMED");

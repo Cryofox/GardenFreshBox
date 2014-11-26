@@ -550,7 +550,7 @@ function CheckLogin()
  		if(checkCookie()=="Admin")
  		{
 
-		theDiv.innerHTML +='<li><a href="/Admin_Users">View and Edit Coordinators</a></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><href="/Admin_Sales">View and Edit Sales</a></li>';
+		theDiv.innerHTML +='<li><a href="/Admin_Users">View and Edit Coordinators</a></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li>';
 		theDiv_.innerHTML +='<button onClick="LogOut();" data-options="align:left" href="/Admin_Sales">Logout</button>';
 		}
 

@@ -149,10 +149,6 @@
 
 			<a href="#" class="button tiny radius" data-reveal-id="AddNew_RecordModal">Add New +</a>
 	
-
-
-
-
 		<table>
 		  <thead>
 		    <tr>
@@ -162,7 +158,7 @@
 		      <th width="100"> city </th>
   		      <th width="100"> province </th>
   		      <th width="100"> postalCode </th>
-  		      <th width="100"> coordinatorIDs </th>
+  		      <th width="100"> HostSite_IDs </th>
  		      <th width="150">  hoursOfOperation</th>		      
 		    </tr>
 		  </thead>

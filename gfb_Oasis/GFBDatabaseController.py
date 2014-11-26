@@ -151,6 +151,23 @@ class GFBDatabaseController:
 		return  rows_ArrDict
  		
 
+	def getLogin(self,user_Str, pass_Str):
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+
+		with con:
+			cur = con.cursor()
+			#Check if HostSite Exists
+			## Add HostSite to Table
+			cur.execute("SELECT * FROM TBL_USERS WHERE email=\'"+user_Str+"\' and hashword=\'"+pass_Str+"\';");
+			records=cur.fetchall()
+
+			if(len(records)>0):
+				#Returns First Row if any Exist (This is the User)
+				return records[0]
+
+		return None
+
 
 	#############
 	#Host Site Functions

@@ -63,8 +63,18 @@ def logout_view(request):
 @view_config(renderer="templates/GardenFreshBox_Home.pt")
 def index_view(request):
 	#if the user is logged in redirect to the appropriate home page
-	return {"layout": site_layout(), "user_header": user_header(request), "location": "Home"}
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "GardenFreshBox_Home"}
 	#return 'Ok'
+@view_config(renderer='json', xhr=True )
+def index_ajax(request):	
+	print ("YAY I WAS CALLED")
+	if (request.params["field1"]=="Login"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+
+		return (json.dumps(myDB.getLogin(request.params["field2"],request.params["field3"]) ))
+
+
 
 @view_config(renderer="templates/BuyGoodies.pt",name="BuyGoodies")
 def BuyGoodies_view(request):

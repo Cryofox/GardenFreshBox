@@ -177,7 +177,9 @@ $(window).load(function(){
         <!-- Left Nav Section -->
     
 	<ul class="left">
-		<li class="has-dropdown">
+
+
+		<li id="Acc_Controller" class="has-dropdown">
 		 <a href="#">Admin Controls</a>
 			<ul class="dropdown">
 				<li><a href="#">Change Account Settings</a></li>
@@ -185,8 +187,9 @@ $(window).load(function(){
 				<li><a href="#">View and Edit HostSites</a></li>
 				<li><a href="#">View and Edit Sales</a></li>
 			</ul>
-
 		</li>
+
+
 	</ul>
 
       <!-- Right Nav Section -->
@@ -327,6 +330,8 @@ $(window).load(function(){
   <!-- Other JS plugins can be included here -->
   <script>
     $(document).foundation();
+
+	window.onload = checkCookie();
   </script>
 
   </body>

@@ -10,11 +10,13 @@
 
 
 <script>
-		function setCookie(cname, cvalue, exdays) {
-	    var d = new Date();
-	    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-	    var expires = "expires="+d.toUTCString();
-	    document.cookie = cname + "=" + cvalue + "; " + expires;
+	function setCookie(cname, cvalue, exdays) 
+	{
+	alert("guys im here");
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname+"=" + cvalue + "; " + expires;
 	}
 
 	function getCookie(cname) {
@@ -29,16 +31,17 @@
 	}
 
 	function checkCookie() {
-	    var user = getCookie("username");
-	    if (user != "") {
-	        alert("Welcome again " + user);
-	    } else {
-	        user = prompt("Please enter your name:", "");
-	        if (user != "" && user != null) {
-	            setCookie("username", user, 365);
+	    var acType = getCookie("AccountType");
+	    if (acType == 1) {
+	        alert("Welcome back mr Stark." + acType);
+	        return "Admin"
+	    } else 
+	    	{
+			alert("We must turn back mr frodo");
+	        return "General"
 	        }
 	    }
-	}
+	
 </script>
 
   </head>
@@ -65,18 +68,9 @@
     <section class="top-bar-section">
         <!-- Left Nav Section -->
     
-	<ul class="left">
-		<li class="has-dropdown">
-		<a href="#">Admin Controls</a>
-		<ul class="dropdown">
-		<li><a href="#">Change Account Settings</a></li>
-		<li><a href="/Admin_Users">View and Edit Coordinators</a></li>   
-		<li><a href="/Admin_HostSites">View and Edit HostSites</a></li>
-		<li><a href="/Admin_Sales">View and Edit Sales</a></li>
-		</ul>
+	<div id="Controller" class="left">
 
-		</li>
-	</ul>
+	</div>
 
       <!-- Right Nav Section -->
 	<ul class="right">
@@ -87,7 +81,7 @@
 		<li><a href="/FAQ">F.A.Q.</a></li>
 		<li><a href="/Contact">Contact us</a></li>
 		<li class="has-form">
-		<button data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" data-options="align:left">Login</button>
+		<button id="dropButton" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" data-options="align:left">Login</button>
 
 		</li>
 
@@ -98,38 +92,39 @@
   </nav>
 
   			<!-- Top bar messes with formatting, reference the dropdown here instead to fix -->
-			<ul id="drop1" class="f-dropdown small"  data-dropdown-content aria-hidden="true" tabindex="-1">
-				<form>
-				<fieldset>
-				<legend>Credentials</legend>
-					  <div class="row collapse">
-					    <div class="small-3 columns">
-					      <span class="prefix">username:</span>
-					    </div>
-					    <div class="small-9 columns">
-					      <input type="text" placeholder="...">
-					    </div>
-					  </div>
 
-					  <div class="row collapse">
-					    <div class="small-3 columns">
-					      <span class="prefix">password:</span>
-					    </div>
-					    <div class="small-9 columns">
-					      <input type="text" placeholder="...">
-					    </div>
-					  </div>
-					<div class="row collapse">  	
-					<div class="small-9 columns">
-						<a href="#" class="button tiny radius">Submit</a>
-						<a href="#" class="button tiny radius">Cancel</a>						
-					</div></div>
 
-				</fieldset>
-				</form>
+				<ul id="drop1" class="f-dropdown small"  data-dropdown-content aria-hidden="true" tabindex="-1">
+					<form>
+					<fieldset>
+					<legend>Credentials</legend>
+						  <div class="row collapse">
+						    <div class="small-3 columns">
+						      <span class="prefix">username:</span>
+						    </div>
+						    <div class="small-9 columns">
+						      <input id="userInput" type="text" placeholder="...">
+						    </div>
+						  </div>
 
-			
-			</ul>
+						  <div class="row collapse">
+						    <div class="small-3 columns">
+						      <span class="prefix">password:</span>
+						    </div>
+						    <div class="small-9 columns">
+						      <input id="passInput" type="text" placeholder="...">
+						    </div>
+						  </div>
+						<div class="row collapse">  	
+						<div class="small-9 columns">
+							<a  onClick="Login()" href="#" class="button tiny radius">Submit</a>
+							<a  onClick="Click('dropButton') " href="#" class="button tiny radius">Cancel</a>	
+										
+						</div></div>
+
+					</fieldset>
+					</form>
+				</ul>
 <!-- Top Bar Code End-->
 </div>
 
@@ -152,8 +147,8 @@
 
   <script src="/static/js/foundation/foundation.topbar.js"></script>
   <script src="/static/js/foundation/foundation.dropdown.js"></script>
-  <script src="/static//static//static/js/foundation/foundation.tab.js"></script>
-  <script src="/static//static/js/foundation/foundation.slider.js"></script>
+  <script src="/static/js/foundation/foundation.tab.js"></script>
+  <script src="/static/js/foundation/foundation.slider.js"></script>
   <script src="/static/js/foundation/foundation.reveal.js"></script>
 
   <!-- Other JS plugins can be included here -->
@@ -161,33 +156,46 @@
     $(document).foundation();
   </script>
 
+
   <script>
     $(document).foundation();
 
  <!-- Ajax POSTS -->
  	<!-- Given TextBox ID's Constructs the Ajax POST and sends -->
+ 	function CheckLogin()
+ 	{
+ 	var theDiv = document.getElementById("Controller");
+ 		if(checkCookie()=="Admin")
+ 		{
+ 		alert("COOKIE IS ADMIN!");
+		theDiv.innerHTML +='<li class="has-dropdown"><a href="#">Admin Controls</a><ul class="dropdown"><li><button href="/Admin_Users">View and Edit Coordinators</button></li><li><a href="/Admin_HostSites">View and Edit HostSites</a></li><li><a href="/Admin_Sales">View and Edit Sales</a></li></ul></li>';
+ 		}
 
-
+ 	};
 
 
 
     function Login() {
+    alert("LOGGING IS BEING PERFORMED");
 
        $.ajax({
-        url: "http://localhost:8080/Admin_HostSites",  
+        url: "http://localhost:8080/",  
         type: "post",
-        data: {field1: "Fetch", field2: "NotFetch"},
+        data: {
+        field1: "Login",
+        field2: document.getElementById('userInput').value,  
+        field3: document.getElementById('passInput').value, 
+
+
+        },
+
+
         dataType: 'json',
         success: function(response) {
 
+		var myObject = JSON.parse(response);        	
 
-		var myObject = JSON.parse(response);        
-		alert(myObject[0]);	
-
-
-
-	
- 			
+		setCookie("AccountType",myObject[6],10); 
 
         },
         error: function(jqXHR, textStatus, errorThrown){
@@ -215,14 +223,12 @@
 	document.getElementById('input_Province').value=pr;
 	document.getElementById('input_postalCode').value=po;
 	document.getElementById('input_hoursOfOperation').value=h;
-
-
     };
 
 
-
-	window.onload = FetchHostSites;
+	window.onload = CheckLogin;
   </script>
+
 
   </body>
 </html>

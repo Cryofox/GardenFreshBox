@@ -356,7 +356,7 @@ $(window).load(function(){
 					(519) 821-6638 ext. 344 <br>
 					</small>
 					</h4>
-					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5579158,-80.2321515)">Locate Me </a>	
 				</div>	
 					<!-- Panel -->
 				<div class="panel">
@@ -367,7 +367,7 @@ $(window).load(function(){
 					(519) 837-0974 <br>
 					</small>
 					</h4>
-					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.928992,-79.826873)">Locate Me </a>	
 				</div>	
 					<!-- Panel -->
 				<div class="panel">
@@ -381,7 +381,7 @@ $(window).load(function(){
 					(519) 823-5851 <br>
 					</small>
 					</h4>
-					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5770936,-80.2590331)">Locate Me </a>	
 				</div>	
 					<!-- Panel -->
 				<div class="panel">
@@ -394,7 +394,7 @@ $(window).load(function(){
 					(519) 824-6892<br>
 					</small>
 					</h4>
-					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5456388,-80.2710405)">Locate Me </a>	
 				</div>	
 					<!-- Panel -->
 				<div class="panel">
@@ -407,7 +407,7 @@ $(window).load(function(){
 					(519) 824-6340<br>
 					</small>
 					</h4>
-					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5248631,-80.2917023)">Locate Me </a>	
 				</div>	
 					<!-- Panel -->
 				<div class="panel">
@@ -420,7 +420,7 @@ $(window).load(function(){
 					(519) 766-0862 <br>
 					</small>
 					</h4>
-					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5134611,-80.2126631)">Locate Me </a>	
 				</div>	
 					<!-- Panel -->
 				<div class="panel">

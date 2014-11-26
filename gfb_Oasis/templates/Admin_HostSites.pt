@@ -336,7 +336,7 @@
 		var myObject = JSON.parse(response);      
 
 	
-
+		window.location.reload(true);
 			
 	
  		
@@ -375,7 +375,7 @@
 		var myObject = JSON.parse(response);      
 
 	
-
+		window.location.reload(true);
 			
 	
  		
@@ -405,7 +405,7 @@
         success: function(response) {
     
 
-
+		window.location.reload(true);
 
 			
 	

@@ -290,7 +290,7 @@
 
 
 
-			
+		window.location.reload(true);
 	
  		
         },

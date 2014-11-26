@@ -125,7 +125,7 @@
 						<div class="row collapse">  	
 						<div class="small-9 columns">
 
-							<a  onClick="Login()" href="#" class="button tiny radius">Submit</a>
+							<a  onClick="Login();Click('LoginModal');" href="#" class="button tiny radius">Submit</a>
 							<a  onClick="Click('LoginModal') " href="#" class="button tiny radius">Cancel</a>	
 										
 						</div></div>
@@ -136,13 +136,26 @@
 
 <!-- Top Bar Code End-->
 </div>
-
-<div class="flex-video">
-        <iframe width="420" height="315" src="//www.youtube.com/embed/Sg0JUw77cro" frameborder="0" allowfullscreen></iframe>
+<div class="row collapse">
+    <div class="large-2 columns">
+    </div>
+    <div class="large-8 columns">
+    <div class="flex-video">
+        <iframe width="400" height="300" src="http://www.youtube.com/embed/Sg0JUw77cro" frameborder="0" allowfullscreen></iframe>
+    </div>
+    </div>
+    <div class="large-2 columns">
+    </div>
 </div>
-
-	<label> If you are interested in purchasing a Garden Fresh Box, volunteering or setting up a host site in your neighbourhood, or if you are a grower interested in selling your produce, please call (519) 821-6638 ext. 344 or email gfbox@guelphchc.ca.</label>
-
+<div class="row collapse">
+    <div class="large-2 columns">
+    </div>
+    <div class="large-8 columns">
+        <label> If you are interested in purchasing a Garden Fresh Box, volunteering or setting up a host site in your neighbourhood, or if you are a grower interested in selling your produce, please call (519) 821-6638 ext. 344 or email gfbox@guelphchc.ca.</label>
+    </div>
+    <div class="large-2 columns">
+    </div>
+</div>
 
 
 

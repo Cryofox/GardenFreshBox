@@ -13,19 +13,15 @@
 
 		function ChangeContent(val1){
 
-	
-			//Sept 2012
 		if(val1==1)
-	    	document.getElementById('ContentHolder').src ="https://drive.google.com/file/d/0BzKCBKRWIS9mUlBPX1AxQlN5bkU/view?usp=sharing&embedded=true";
+	    	document.getElementById('ContentHolder').src ="https://drive.google.com/file/d/0B5pY2nwS_bOlRlFkQmVya0JiT0k/view?usp=sharing&embedded=true";
 	    	//Oct 2012
 		if(val1==2)
-	    	document.getElementById('ContentHolder').src="https://drive.google.com/file/d/0BzKCBKRWIS9melp5ZHhnWC0tWDA/view?usp=sharing&embedded=true" ;
+	    	document.getElementById('ContentHolder').src="https://drive.google.com/file/d/0B5pY2nwS_bOlMlJYdmZwOWR6d3M/view?usp=sharing&embedded=true" ;
 	    	//Nov 2012	    
 		if(val1==3)
-	    	document.getElementById('ContentHolder').src="https://drive.google.com/file/d/0BzKCBKRWIS9mRTZPbXZCTHVYTVE/view?usp=sharing&embedded=true";
-	    	//Dec 2012	   	    
-		if(val1==4)
-	    	document.getElementById('ContentHolder').src="https://drive.google.com/file/d/0BzKCBKRWIS9mOWtNSnBKZ1lNOUU/view?usp=sharing&embedded=true";
+	    	document.getElementById('ContentHolder').src="https://drive.google.com/file/d/0B5pY2nwS_bOlVmtSR3g3b1VyUzQ/view?usp=sharing&embedded=true";
+	    	//Dec 2012	 
 				
 		
 
@@ -83,7 +79,7 @@
 		<li><a href="#">Contact us</a></li>
 		<li class="has-form">
 		<button data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" data-options="align:left">Login</button>
-		
+
 		</li>
 
 	</ul>
@@ -144,10 +140,10 @@
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>2012</label></li>
-        <li><a  href="#" onclick="ChangeContent(1);">September</a></li>
-        <li><a  href="#" onclick="ChangeContent(2);">October</a></li>
-        <li><a  href="#" onclick="ChangeContent(3);">November</a></li>
-        <li><a  href="#" onclick="ChangeContent(4);">December</a></li>
+        <li><a  href="#" onclick="ChangeContent(1);">Recipe Book 1</a></li>
+        <li><a  href="#" onclick="ChangeContent(2);">Recipe Book 2</a></li>
+        <li><a  href="#" onclick="ChangeContent(3);">Recipe Book 3</a></li>
+
 
 
 

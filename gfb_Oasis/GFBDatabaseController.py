@@ -66,7 +66,7 @@ class GFBDatabaseController:
 					for x in range (len(hstSite_iArr)):			
 						cur.execute("INSERT INTO TBL_COORDINATOR_HOSTSITE_REL VALUES (null,"+str(record[0][0])+","+str(hstSite_iArr[x])+")");
 				print "Success!"
-				
+
 				return True
 		print "ADDING USER:FAILED"
 		return False
@@ -84,7 +84,21 @@ class GFBDatabaseController:
  		return true
 
  	def getUsers(self):
- 		return rows_ArrDict
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+		with con: 
+
+			cur = con.cursor()
+
+			##Check if HostSites in our List exist
+			cur.execute("SELECT * FROM TBL_USERS");
+
+			records = cur.fetchall()
+			if(len(records)>0):
+				return records
+
+		return None	
+
 
  	def getUser(self, email_str):
 		#Make sure mysql is running...duh
@@ -120,6 +134,17 @@ class GFBDatabaseController:
 		return None
 
 
+	def removeUser(self, userid):
+		#Make sure mysql is running...duh
+		con = mdb.connect('localhost', 'root', 'password', 'gardenfreshbox');
+
+		with con:
+			cur = con.cursor()
+			#If the HostSites BOTH Exist (even if its the same one for both)
+			cur.execute("DELETE FROM TBL_USERS WHERE id="+str(userid));
+			return True
+
+		return False		
 
 
 	def getCoordinatorList(self,hostSiteID_int):

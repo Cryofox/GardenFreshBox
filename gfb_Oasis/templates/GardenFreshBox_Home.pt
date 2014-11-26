@@ -9,7 +9,37 @@
 
 
 
+<script>
+		function setCookie(cname, cvalue, exdays) {
+	    var d = new Date();
+	    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	    var expires = "expires="+d.toUTCString();
+	    document.cookie = cname + "=" + cvalue + "; " + expires;
+	}
 
+	function getCookie(cname) {
+	    var name = cname + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0; i<ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0)==' ') c = c.substring(1);
+	        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+	    }
+	    return "";
+	}
+
+	function checkCookie() {
+	    var user = getCookie("username");
+	    if (user != "") {
+	        alert("Welcome again " + user);
+	    } else {
+	        user = prompt("Please enter your name:", "");
+	        if (user != "" && user != null) {
+	            setCookie("username", user, 365);
+	        }
+	    }
+	}
+</script>
 
   </head>
 
@@ -51,11 +81,11 @@
       <!-- Right Nav Section -->
 	<ul class="right">
 		<li><a href="/BuyGoodies">Buy Goodies</a></li>
-		<li><a href="#">Recipes</a></li>
+		<li><a href="/Recipes">Recipes</a></li>
 		<li><a href="/PickupLocations">Pickup Locations</a></li>
 		<li><a href="/News">News</a></li>
-		<li><a href="#">F.A.Q.</a></li>
-		<li><a href="#">Contact us</a></li>
+		<li><a href="/FAQ">F.A.Q.</a></li>
+		<li><a href="/Contact">Contact us</a></li>
 		<li class="has-form">
 		<button data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" data-options="align:left">Login</button>
 
@@ -129,6 +159,69 @@
   <!-- Other JS plugins can be included here -->
   <script>
     $(document).foundation();
+  </script>
+
+  <script>
+    $(document).foundation();
+
+ <!-- Ajax POSTS -->
+ 	<!-- Given TextBox ID's Constructs the Ajax POST and sends -->
+
+
+
+
+
+    function Login() {
+
+       $.ajax({
+        url: "http://localhost:8080/Admin_HostSites",  
+        type: "post",
+        data: {field1: "Fetch", field2: "NotFetch"},
+        dataType: 'json',
+        success: function(response) {
+
+
+		var myObject = JSON.parse(response);        
+		alert(myObject[0]);	
+
+
+
+	
+ 			
+
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert(textStatus, errorThrown);
+        }
+
+		});
+
+		
+    };
+ <!--------------->
+<!-- Button Click -->
+	function Click(btnID) 
+	{document.getElementById(btnID).click();}
+
+
+
+
+    function SetInputText(id,n, a, c, pr,po,h) 
+    {
+	document.getElementById('hidden_ID').value=id;
+	document.getElementById('input_HostSite Name').value=n;
+	document.getElementById('input_Address').value=a;
+	document.getElementById('input_City').value=c;
+	document.getElementById('input_Province').value=pr;
+	document.getElementById('input_postalCode').value=po;
+	document.getElementById('input_hoursOfOperation').value=h;
+
+
+    };
+
+
+
+	window.onload = FetchHostSites;
   </script>
 
   </body>

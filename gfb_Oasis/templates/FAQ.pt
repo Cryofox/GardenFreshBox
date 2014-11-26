@@ -44,6 +44,75 @@
 
 
 
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+ 
+<script>
+ $(document).ready(function() {
+ 
+    $('.faq_question').click(function() {
+ 
+        if ($(this).parent().is('.open')){
+            $(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+            $(this).closest('.faq').removeClass('open');
+ 
+            }else{
+                var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+                $(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+                $(this).closest('.faq').addClass('open');
+            }
+ 
+    });
+ 
+});
+</script>
+<h2>Frequently Asked Questions</h2>
+<div class="panel">
+  <h5>Q) What is the Garden Fresh Box Program? </h5>
+  <p>    A) It  is a volunteer‐driven program operated by the Guelph Community Health Centre & funded by the City of Guelph.</p>
+
+
+  <h5>Q) How many people does the GHC serve?</h5>
+  <p>    A) The GHC serve's 4-5% of Guelph's population</p>
+
+  <h5>Q) How is Garden Fresh Box supported? </h5>
+  <p>    A) The Garden Fresh Box is possible only due to volunteers. Volunteers support the program in <br>
+assisting in the following ways: packing the boxes, delivery, newsletter production, acting as host 
+site coordinators and providing meal preparation on packing day.</p>
+
+  <h5>Q) How much profit does Garden Fresh Box earn annually? </h5>
+  <p>    A) Garden Fresh Box is a non-profit program</p>
+
+  <h5>Q) What does Garden Fresh Box strive to acheive? </h5>
+  <p>    A) Garden Fresh Box has two main goals<br>
+  1. To help people from the City of Guelph access affordable, fresh produce.<br>
+2. To support local farmers. </p>
+
+  <h5>Q) Is my information public? </h5>
+  <p>    A) No! All customer information is confidential </p>
+  
+  <h5>Q) What method can I pay with? </h5>
+  <p>    A) You may pay for an order with either cash or paypal, and if elligable voucher codes</p>
+
+  <h5>Q) When do I recieve my Garden Fresh Box</h5>
+  <p>    A) Pick up your Garden Fresh Box on the 3rd Wednesday of the month from your Host 
+Site. Enjoy!</p>
+
+  <h5>Q) Who can participate in the program? </h5>
+  <p>    A) EVERYONE is welcome to participate in the program!</p>
+
+  <h5>Q) What does a typical box contain?</h5>
+  <p>    A) Typical boxes contains 9-14 vegetables and 3-5 types of fruit</p>
+
+  <h5>Q) How much does a Garden Fresh Box cost? </h5>
+  <p>    A) $20 for a Large box, $15 for a small box</p>
+
+  <h5>Q) Can I recieve a charitable tax reciept? </h5>
+  <p>    A) YES, on all donations $20 or greater!</p>
+
+</div>
+
+
+
 
 <div class="fixed">
 
@@ -51,7 +120,7 @@
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1 id="button_Green" ><a href="/" style="color: #29A329"> Garden Fresh Box</a></h1>
+        <h1 id="button_Green" ><a href="GardenFreshBox_Home.html" style="color: #29A329"> Garden Fresh Box</a></h1>
       </li>
       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -75,15 +144,15 @@
 
       <!-- Right Nav Section -->
 	<ul class="right">
-		<li><a href="/BuyGoodies">Buy Goodies</a></li>
+		<li><a href="BuyGoodies.html">Buy Goodies</a></li>
 		<li><a href="#">Recipes</a></li>
-		<li><a href="/PickupLocations">Pickup Locations</a></li>
-		<li><a href="/News">News</a></li>
+		<li><a href="PickupLocations.html">Pickup Locations</a></li>
+		<li><a href="News.html">News</a></li>
 		<li><a href="#">F.A.Q.</a></li>
 		<li><a href="#">Contact us</a></li>
 		<li class="has-form">
 		<button data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" data-options="align:left">Login</button>
-		
+
 		</li>
 
 	</ul>
@@ -127,60 +196,7 @@
 			</ul>
 <!-- Top Bar Code End-->
 
-<div class="off-canvas-wrap move-right" data-offcanvas>
-  <div class="inner-wrap">
-    <nav class="tab-bar">
-      <section class="left-small">
-        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
 
-      <section class="middle tab-bar-section">
-        <h1 class="title">Menu</h1>
-      </section>
-
-
-    </nav>
-
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>2012</label></li>
-        <li><a  href="#" onclick="ChangeContent(1);">September</a></li>
-        <li><a  href="#" onclick="ChangeContent(2);">October</a></li>
-        <li><a  href="#" onclick="ChangeContent(3);">November</a></li>
-        <li><a  href="#" onclick="ChangeContent(4);">December</a></li>
-
-
-
-
-      </ul>
-    </aside>
-
-
-    
-	<main class="inner-wrap"><!-- all content goes here -->
-		<div class="row">
-			<iframe id="ContentHolder" src="https://s&embedded=true" style="width:100%; height:700px;" frameborder="0"></iframe>
-		</div>
-	</main>
-
-
- <!-- content goes here
-    <section id="OctHolder" class="section">
-    
-src="https://drive.google.com/file/d/0BzKCBKRWIS9mUlBPX1AxQlN5bkU/view?usp=sharing&embedded=true"
-src="https://drive.google.com/file/d/0BzKCBKRWIS9melp5ZHhnWC0tWDA/view?usp=sharing&embedded=true" 
-src="https://drive.google.com/file/d/0BzKCBKRWIS9mRTZPbXZCTHVYTVE/view?usp=sharing&embedded=true"
-src="https://drive.google.com/file/d/0BzKCBKRWIS9mOWtNSnBKZ1lNOUU/view?usp=sharing&embedded=true"
-
- -->
-
-
-
-
-  <a class="exit-off-canvas"></a>
-
-  </div>
-</div>
 
 
 

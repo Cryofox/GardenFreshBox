@@ -236,6 +236,77 @@ def HostSite_ajax(request):
 			request.params["field2"]);
 		return 	
 
+@view_config(renderer="templates/Admin_Users.pt",name="Admin_Users")
+def User_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "Admin_Users"}
+	#return 'Ok'
+
+#Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
+#Atm Dates Are HardCoded, if time permits, I'll figure out a way to pass date values in
+@view_config(renderer='json',name="Admin_Users", xhr=True )
+def User_ajax(request):
+	if (request.params["field1"]=="Fetch"):
+		#test = "hello"
+		myDB = GFBDatabaseController();
+		records=myDB.getUsers()
+
+		recordList= list()
+		for x in range(len(records)):
+			valList = list()
+			for y in range(len(records[x])):
+				valList.append( str(records[x][y]));
+
+			recordList.append(valList);
+
+		print "Records="+str(records)
+		print "JSON DUMP="+json.dumps(recordList)
+	    #return records
+		return (json.dumps(recordList))
+
+	if (request.params["field1"]=="AddNewUser"):
+		print ("ADD NEW IS CALLED")
+		myDB = GFBDatabaseController();
+		#Update Order
+		myDB.addUser(
+			request.params["field2"], 
+			request.params["field3"],
+			request.params["field4"],
+			request.params["field5"],
+			request.params["field6"],
+
+			None,
+			request.params["field7"]
+			);
+		return 		
+	if (request.params["field1"]=="DeleteUser"):
+		myDB = GFBDatabaseController();
+		#Update Order
+		myDB.removeUser(
+			request.params["field2"]);
+		return 
+
+
+@view_config(renderer="templates/FAQ.pt",name="FAQ")
+def FAQ_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "FAQ"}
+	#return 'Ok'
+
+
+@view_config(renderer="templates/Recipes.pt",name="Recipes")
+def Recipes_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "Recipes"}
+	#return 'Ok'		
+
+@view_config(renderer="templates/ContactUs.pt",name="ContactUs")
+def ContactUS_view(request):
+	#if the user is logged in redirect to the appropriate home page
+	return {"layout": site_layout(), "user_header": user_header(request), "location": "ContactUs"}
+	#return 'Ok'		
+
+
 
 ########## INBETWEENS
 

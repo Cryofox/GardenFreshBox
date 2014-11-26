@@ -100,6 +100,22 @@ $(window).load(function(){
 			AddMarker(43.528434,-80.223534, "CSA Foodbank");
 			AddMarker(43.560058,-80.270114, "Evergreen Seniors' Center");
 			AddMarker(43.5706658,-80.2217624, "Grange Hill East Neighbourhood Group");
+			AddMarker(43.5579158,-80.2321515, "Guelph Community Health Centre");
+			AddMarker(43.928992,-79.826873, "Kortright Hills Neighbourhood Group");
+			AddMarker(43.5770936,-80.2590331, "New Life Church");
+			AddMarker(43.5456388,-80.2710405, "Onward Willow Neighbourhood Group");
+			AddMarker(43.5248631,-80.2917023, "Parkwood Gardens Neighbourhood Group");
+			AddMarker(43.5134611,-80.2126631, "Rickson Ridge School");
+			AddMarker(42.2972621,-74.8897536, "St. Matthias Neighbourhood Group at Hospice Wellington");
+			AddMarker(43.5449974,-80.2359904, "Two Rivers Neighbourhood Group");
+			AddMarker(43.7027201,-80.3740938, "Victoria Park Seniors Centre, Fergus");
+			AddMarker(43.5349648,-80.2857361, "West Willow Woods Neighbourhood Group");
+			AddMarker(43.5603807,-80.2633326, "33 Marlborough Rd.");
+			AddMarker(43.545639,-80.27104, "Guelph CHC Shelldale Site");
+			AddMarker(43.5436053,-80.2491375, "Downtown Neighbourhood Association");
+			AddMarker(43.3962587,-80.3446878, "Langs");
+			AddMarker(43.5479434,-80.2575566, "Dublin Street");
+
 		}
 
 		function CenterLoc(val1,val2) 
@@ -297,6 +313,203 @@ $(window).load(function(){
 					</h4>
 					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
 				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Guelph Community Health Centre
+					</h6> 
+					<h4><small>
+					130 Grange Rd, Guelph<br>
+					ON N1E 2V3<br>
+					(519) 821-6638 ext. 344 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Kortright Hills Neighbourhood Group
+					</h6> 
+					<h4><small>
+					(519) 837-0974 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					New Life Church
+					</h6> 
+					<h4><small>
+					
+					400 Victoria Rd. Guelph<br>
+					ON N1E 5J7<br>
+					(519) 823-5851 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Onward Willow Neighbourhood Group
+					</h6> 
+					<h4><small>
+					15 Willow Rd., Guelph<br>
+					ON N1H<br>
+					(519) 824-6892<br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Parkwood Gardens Neighbourhood Group 
+					</h6> 
+					<h4><small>
+					21 Imperial Road South<br>
+					ON N1K 1X3<br>
+					(519) 824-6340<br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Rickson Ridge School
+					</h6> 
+					<h4><small>
+					177 Rickson Ave, Guelph, ON <br>
+					ON N1G 1A1<br>
+					(519) 766-0862 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					St. Matthias Neighbourhood Group at Hospice Wellington 
+					</h6> 
+					<h4><small>
+					171 Kortright Rd W<br>
+					ON N1G 3N9<br>
+					(519) 836-7132 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Two Rivers Neighbourhood Group
+					</h6> 
+					<h4><small>
+					131 Ontario Street, Guelph, ON<br>
+					ON N1E 3B2<br>
+					(519) 837-4248<br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Victoria Park Seniors Centre, Fergus
+					</h6> 
+					<h4><small>
+					University of Guelph Health Services<br>
+					150 Albert St W, Fergus<br>
+					ON N1M 1X2<br>
+					(519) 787-1814  <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					West Willow Woods Neighbourhood Group
+					</h6> 
+					<h4><small>
+					495 Willow Rd, Guelph<br>
+					ON N1H 6S3<br>
+					(519) 826-9930 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					33 Marlborough Rd.
+					</h6> 
+					<h4><small>
+					Guelph<br>
+					ON N1E 3X2<br>
+					(519) 824-6692<br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Guelph CHC Shelldale Site
+					</h6> 
+					<h4><small>
+					15 Willow Rd<br>
+					ON N1H 7C8<br>
+					(519) 821-6638 ext. 2 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Downtown Neighbourhood Association
+					</h6> 
+					<h4><small>
+					10 Carden Street<br>
+					ON N1E 7C8<br>
+					(519) 362-7756 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+			
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Langs
+					</h6> 
+					<h4><small>
+					1145 Concession Rd, Cambridge<br>
+					ON N1E 7C8<br>
+					(519) 653-1470 x235 <br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+					<!-- Panel -->
+				<div class="panel">
+					<h6 class="text-left"> 
+					Dublin Street
+					</h6> 
+					<h4><small>
+					229 Dublin Street North, Guelph<br>
+					ON N1H 4P3<br>
+					(519) 766-7991<br>
+					</small>
+					</h4>
+					<a  id="button_Green" class="button tiny" onclick="CenterLoc(43.5706658,-80.2217624)">Locate Me </a>	
+				</div>	
+
 
 			</div>
 

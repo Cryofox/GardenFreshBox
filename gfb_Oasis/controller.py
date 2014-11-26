@@ -2,9 +2,9 @@ from pyramid.httpexceptions import HTTPFound
 import hashlib
 import GFBDatabaseController
 
-	'''
-		logs the user into the system with the given request, containg a username and password
-	'''
+'''
+	logs the user into the system with the given request, containg a username and password
+'''
 def process_login_request(request):
 	if not 'user' in request.params or not 'pass' in request.params or request.params['user'] == '' or request.params['pass'] == '':
 		return HTTPFound(location='login?error=1')
